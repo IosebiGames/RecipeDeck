@@ -21,8 +21,8 @@ public class TextBox {
     public TextBox(App app) {
 		this.app = app;
 		this.date = LocalDate.now();
-	    this.lastDate = 2;
-	    this.lastMonth = 5;
+	    this.lastDate = 9;
+	    this.lastMonth = 4;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
 	    this.daysPerMonth = 30;
@@ -41,22 +41,20 @@ public class TextBox {
 		if(startupS.tracker_permission) {
 			setTracker(lastDate, lastMonth, latestDate, latestMonth, "Feature was disabled by Developer since April of 2026, Functionality can be limited.");
 		}else {
-			setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 2.05.2026");
+			setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 9.05.2026");
 		}
 	}
 	private void setInformation(final String info) {
 		textPane.setText(info);
 	}
-	//Unmaintained regions
 	private void setTracker(int lastDate, int lastMonth, int latestDate, int latestMonth, final String warningTip) {
 		 textPane.setToolTipText(warningTip);
-		 if(lastMonth < latestMonth) {
-	        monthsAgo = " (" + (latestMonth -= lastMonth) + "mo)";
-	        setInformation("                                             What's New: " + "\n                          - Background Bug Fixes \n\n\n\n\n   Released: 9.04.2026" + monthsAgo);
-		 }else if(lastDate > latestDate) {
-			daysPerMonth = daysPerMonth - (lastDate -= latestDate);
-			daysAgo = " (" + daysPerMonth + "d)";
-			setInformation("                                             What's New: " + "\n                          - Background Bug Fixes \n\n\n\n\n   Released: 9.04.2026" + daysAgo);
-		}
+		 if(latestMonth > lastMonth && latestDate == lastDate) {
+			 daysAgo = " (" + String.valueOf(latestMonth - lastMonth) + "mo)";
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 9.05.2026" + daysAgo);
+		 }else if(latestDate < lastDate) {
+			 monthsAgo = " (" + (daysPerMonth - (lastDate -= latestDate)) + "d)";
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 9.05.2026" + monthsAgo);
+		 }
 	} 
 }
