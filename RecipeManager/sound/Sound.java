@@ -6,7 +6,8 @@ import Tools.ResourceLoader;
 public class Sound {
 	private Clip clip;
 	
-    public void playSound(String path) throws Exception {
+    public void playSound(String path) {
+      try {
     	clip = AudioSystem.getClip();
     	clip.open(AudioSystem.getAudioInputStream(getClass().getResource(ResourceLoader.getSoundFile(path))));	
     	clip.start();
@@ -14,5 +15,8 @@ public class Sound {
     	if(e.getType() == LineEvent.Type.STOP) { 
     	      clip.close();
         }});
+     }catch(Exception e) {
+         System.out.println("Failed to play the sound: " + e.getMessage()); 	 
      }
+   }
 }
