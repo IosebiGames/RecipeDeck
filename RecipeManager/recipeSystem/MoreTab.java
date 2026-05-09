@@ -21,7 +21,6 @@ public class MoreTab {
 	private Labels l;
 	private Button b;
 	private ResourceLoader rl = new ResourceLoader();
-	private Sound s = new Sound();
 	private Timer resetTimer;
     private int counter = 0;
     private String[] text, labelTexts;
@@ -80,8 +79,7 @@ public class MoreTab {
 		productBox.setFocusable(false);
 		productBox.setFont(createFont("Segoe UI", Font.BOLD, 14));
 		productBox.setBounds(new Bounds( 88, 41, 170, 41).getBounds());
-		
-		productBox.addActionListener(_ -> {
+		productBox.addActionListener(e -> {
 			  switch(productBox.getSelectedIndex()) {
 			  case 0: displayInfo("Calories: 332", "Vitamin: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); break;
 			  case 1: displayInfo("Calories: 120", "Vitamin: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); break; 
@@ -89,6 +87,9 @@ public class MoreTab {
 			  case 3: displayInfo("Calories: 250", "Vitamin: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); break;
 			  case 4: displayInfo("Calories: 500", "Vitamin: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); break;
 		    }
+			if(e.getSource() == productBox) {
+				new Sound().playSound("/sound/click_sound.wav");
+			}
 		});
 		buttonList.get(0).addActionListener(e -> {
             if(e.getSource()==buttonList.get(0)) {
@@ -113,7 +114,7 @@ public class MoreTab {
 		window.getContentPane().add(labelList.get(0));
 		window.getContentPane().add(productBox);
 		
-		StartupScreen.setMode("Dark");
+		StartupScreen.setMode("Light");
 	}
 	private Font createFont(String fontName, int type, int size) {
 		return new Font(fontName, type, size);
