@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import main.App;
 import recipeSystem.RecipeHandler;
+import sound.Sound;
 
 public class Decorator implements java.awt.event.ActionListener {
     private App app;
@@ -34,7 +35,8 @@ public class Decorator implements java.awt.event.ActionListener {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings);
- 				   Burgerpick.setText("Selecting more than once is disallowed, product is too expensive.");
+ 				   new Sound().playSound("/sound/click_sound.wav");
+ 	 			   Burgerpick.setText("Selecting more than once is disallowed, product is too expensive.");
  				   Burgerpick.setEnabled(false);
  				   app.buttonList.get(5).setEnabled(true);
  				   app.buttonList.get(5).addActionListener(this);
@@ -44,7 +46,8 @@ public class Decorator implements java.awt.event.ActionListener {
  		       if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings);
- 		      }
+ 				   new Sound().playSound("/sound/click_sound.wav");
+ 			   }
             };
     		Burgerpick.setEnabled(true);
     		Burgerpick.setFocusable(false);
@@ -60,6 +63,7 @@ public class Decorator implements java.awt.event.ActionListener {
     				if(e.getSource()==Drinkpick) {
     					addings += 90;
     					app.labelList.get(12).setText("" + addings);
+    					new Sound().playSound("/sound/click_sound.wav");
     				}
     			}        	
     		});
