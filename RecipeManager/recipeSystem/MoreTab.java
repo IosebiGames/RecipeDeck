@@ -57,8 +57,15 @@ public class MoreTab {
 		});
 		resetTimer.start();
 		
-		window = Screen.createWindow("More Info", false, true, 306, 459, JFrame.DO_NOTHING_ON_CLOSE, new ImageIcon(getClass().getResource("/images/icon.png")).getImage(), new WindowH());
-
+		window = Screen.createWindow("More Info", false, true, 306, 459, JFrame.DO_NOTHING_ON_CLOSE, new ImageIcon(getClass().getResource("/images/icon.png")).getImage(), new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+			     Toolkit.getDefaultToolkit().beep();
+			     buttonList.get(1).setBackground(Color.red);
+			     resetTimer.start();
+			     return;
+			}
+		});
 		p.createPanel(PanelList.get(0), new Bounds(29, 92, 239, 311).getBounds(), false);
 		b.createButton(buttonList.get(0), new Bounds(10, 216, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
 		b.createButton(buttonList.get(1), new Bounds(10, 260, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
@@ -118,14 +125,6 @@ public class MoreTab {
 	}
 	private Font createFont(String fontName, int type, int size) {
 		return new Font(fontName, type, size);
-	}
-	private class WindowH extends WindowAdapter {
-		public void windowClosing(WindowEvent e) {
-		     Toolkit.getDefaultToolkit().beep();
-		     buttonList.get(1).setBackground(Color.red);
-		     resetTimer.start();
-		     return;
-		}
 	}
 	private void displayInfo(String caloriesInf, String vitaminInf, String proteinInf, String sodiumInf, String waterInf, String fatInf, String allergenInf, String productInf) {
         text = new String[] {productInf, caloriesInf, vitaminInf, proteinInf, sodiumInf, fatInf, waterInf, allergenInf};
