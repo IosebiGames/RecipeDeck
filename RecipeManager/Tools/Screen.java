@@ -19,12 +19,8 @@ public class Screen {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         window.getContentPane().setLayout(null);
-        
-      	setIcon(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")));
-	}
-	private void setIcon(ImageIcon icon) {
-		window.setIconImage(icon.getImage());
-	}
+        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
+ 	}
 	public static JFrame createWindow(String title, boolean resizable, boolean visible, int w, int h, int closeOperation, Image icon, WindowAdapter WindowH) {
 		anotherWindow = new JFrame(title);
 		anotherWindow.setResizable(resizable);
