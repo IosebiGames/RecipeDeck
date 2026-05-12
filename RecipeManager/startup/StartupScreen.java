@@ -16,16 +16,9 @@ public class StartupScreen {
 	private int procentage = 0;
 	public Timer timer;
 	private boolean startup_permission = true;
-	public boolean tracker_permission = false;
+	public static boolean tracker_permission = false;
 	private App app;
 	
-	public StartupScreen(String message) {
-	    if(tracker_permission) {
-	    	System.out.println(message);
-	    }else {
-	    	return;
-	    }
-	}
 	public StartupScreen(App app) {
 	   this.app = app;
 		
@@ -37,9 +30,8 @@ public class StartupScreen {
        window.setLocationRelativeTo(null);
        window.setVisible(true);
        window.getContentPane().setLayout(null);
-   
-	   setIcon(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")));
-
+       window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
+       
        bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Segoe UI", Font.BOLD, 15));
      
        timer = new Timer(100, new ActionListener() {
@@ -65,9 +57,6 @@ public class StartupScreen {
 			if(procentage == 91) System.exit(0);
 		}
 	}
-	private void setIcon(ImageIcon icon) {
-		window.setIconImage(icon.getImage());
-    }
 	private JProgressBar createBar(String text, int value, boolean visible, Rectangle rect, Color bc, Color fg, JFrame window, boolean focusable, boolean extrab, Font f) {
 		 bar = new JProgressBar();
 		 bar.setFocusable(focusable);
