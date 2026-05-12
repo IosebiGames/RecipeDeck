@@ -22,10 +22,10 @@ this Application provides a basic example of how Restaurants can make simple and
        - October 8 2025 (Beginning of the conversation)<br>
        - October 10 2025 (Very first progress)<br>
        - October 11-12 2025 (Got idea how to make it)<br>
-       - October 17-19 2025 (New Progresses)
-       - October 20 2025 (App completed)
-       - October 27 2025 (They contacted and said that were busy for days for being somewhere)
-       - November 9 2025 (final Hand-over time).
+       - October 17-19 2025 (New Progresses)<br>
+       - October 20 2025 (App completed)<br>
+       - October 27 2025 (They contacted and said that were busy for days for being outside of the country.)<br>
+       - November 9 2025 (final Hand-over time).<br>
   # How was the app made:
    RecipeManager is made trough the Java SE, it uses Java Swing (in-built framework, part of the Java Fundation Classes (JFC) used for making GUIs), for Components and window that you see, it uses FlatLaf library for a Better, Modern Look & Feel to the users. Java's Sound API is involved to handle the Sounds. Action Handling/Additional Features for GUI comes from Java AWT (Abstract Window Tookit) which is paired with Swing.
   ### How it ended up:
