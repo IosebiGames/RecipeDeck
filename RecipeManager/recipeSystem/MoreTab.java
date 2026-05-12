@@ -35,7 +35,7 @@ public class MoreTab {
 		this.p = new Panel(app.screen);
 		this.rh = rh;
 		this.l = new Labels(app.screen);
-		this.b = new Button(app, this);
+		this.b = new Button();
 	    this.screen = new Screen();
 	    this.labelTexts = new String[] {"Product:", "Calories:", "Possible Vitamins:", "Fats:", "Sodium:", "Protein:", "Water:", "Allergens:"};
     }
