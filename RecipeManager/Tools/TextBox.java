@@ -16,17 +16,15 @@ public class TextBox {
     private int daysPerMonth;
     private String daysAgo, monthsAgo;
     private LocalDate date;
-    private StartupScreen startupS;
     
     public TextBox(App app) {
 		this.app = app;
 		this.date = LocalDate.now();
-	    this.lastDate = 9;
-	    this.lastMonth = 4;
+	    this.lastDate = 12;
+	    this.lastMonth = 5;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
 	    this.daysPerMonth = 30;
-	    this.startupS = new StartupScreen("Update Tracker Availible!");
 	}
 	public void validate() {
 		textPane = new JTextPane();
@@ -38,7 +36,7 @@ public class TextBox {
 		textPane.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		app.panelList.get(4).add(textPane);
 
-		if(startupS.tracker_permission) {
+		if(StartupScreen.tracker_permission) {
 			setTracker(lastDate, lastMonth, latestDate, latestMonth, "Feature was disabled by Developer since April of 2026, Functionality can be limited.");
 		}else {
 			setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 9.05.2026");
