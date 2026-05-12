@@ -17,10 +17,8 @@ this Application provides a basic example of how Restaurants can make simple and
      a few days later after conversation started (Somewhere Between October 8-11 2025) I started to work and completed app fully 10 days earlier (on October 20 2025).
    Person was pretty respectful and also greatful but kind of busy since they used to reply once every 2/4 days. I used to send them progress when working so they replied when they could.
    they have answered on October 27 and said that will talk tomorrow but even when the deadline came (October 30), they haven't answered anything.
-   But They replied only on November 9th of 2025, and they've said that what I have done is sufficient and how it would be perfect if I hand-over the app. I agreed on handing over, However I wanted to discuss a details (like how we hand-over, what do we do), but after the last message of mine, they have not replied at all, its been 180+ days.
-   
-   <br>
-     #Timelines:<br>
+   But They replied only on November 9th of 2025, and they've said that what I have done is sufficient and how it would be perfect if I hand-over the app. I agreed on handing over, However I wanted to discuss a details (like how we hand-over, what do we do), but after the last message of mine, they have not replied at all, its been 180+ days.<br>
+     Timelines:<br>
        - October 8 2025 (Beginning of the conversation)<br>
        - October 10 2025 (Very first progress)<br>
        - October 11-12 2025 (Got idea how to make it)<br>
@@ -28,6 +26,7 @@ this Application provides a basic example of how Restaurants can make simple and
        - October 20 2025 (App completed)<br>
        - October 27 2025 (They contacted and said that were busy for days for being outside of the country.)<br>
        - November 9 2025 (final Hand-over time).<br>
+       
   # How was the app made:
    RecipeManager is made trough the Java SE, it uses Java Swing (in-built framework, part of the Java Fundation Classes (JFC) used for making GUIs), for Components and window that you see, it uses FlatLaf library for a Better, Modern Look & Feel to the users. Java's Sound API is involved to handle the Sounds. Action Handling/Additional Features for GUI comes from Java AWT (Abstract Window Tookit) which is paired with Swing.
   ### How it ended up:
