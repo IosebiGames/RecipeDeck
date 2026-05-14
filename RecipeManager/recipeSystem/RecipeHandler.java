@@ -1,8 +1,6 @@
 package recipeSystem;
 
 import javax.swing.*;
-import Tools.Screen;
-
 import java.awt.Font;
 import java.io.*;
 import main.App;
@@ -11,12 +9,9 @@ public class RecipeHandler {
     private App app;
     private int counter = 0, allergenAmount = 0;
     public Timer timer;
-    private Screen screen;
-    private MoreTab mt; 
     
     public RecipeHandler(App app) {
         this.app = app;
-        this.screen = new Screen();
         
         timer = new Timer(1000, _ -> {
             counter++;
