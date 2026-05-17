@@ -5,7 +5,6 @@ import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.*;
 import main.App;
-import recipeSystem.RecipeHandler;
 import sound.Sound;
 
 public class Decorator implements java.awt.event.ActionListener {
@@ -17,14 +16,12 @@ public class Decorator implements java.awt.event.ActionListener {
     private JPopupMenu popup1, popup2;
     private int addings = 0;
     private ResourceLoader rl;
-    private RecipeHandler rh;
     private ActionListener burgerAL, burgerAL2;
     
     public Decorator(App app) {
         this.app = app;
         this.rl = new ResourceLoader();
-        this.rh = new RecipeHandler(app);
-    	this.Burgerpick = new JMenuItem("Pick (60$)");
+     	this.Burgerpick = new JMenuItem("Pick (60$)");
     	this.Drinkpick = new JMenuItem("Pick (90$)");
     	this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
