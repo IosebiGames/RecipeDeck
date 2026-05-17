@@ -17,10 +17,8 @@ public class MoreTab {
     private App app;
     private Panel p;
     private RecipeHandler rh;
-    private Screen screen;
-	private Labels l;
+    private Labels l;
 	private Button b;
-	private ResourceLoader rl = new ResourceLoader();
 	private Timer resetTimer;
     private int counter = 0;
     private String[] text, labelTexts;
@@ -36,7 +34,6 @@ public class MoreTab {
 		this.rh = rh;
 		this.l = new Labels(app.screen);
 		this.b = new Button();
-	    this.screen = new Screen();
 	    this.labelTexts = new String[] {"Product:", "Calories:", "Possible Vitamins:", "Fats:", "Sodium:", "Protein:", "Water:", "Allergens:"};
     }
 	public void openMoreTab() {
