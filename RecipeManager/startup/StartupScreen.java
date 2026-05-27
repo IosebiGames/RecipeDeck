@@ -88,13 +88,17 @@ public class StartupScreen {
 	}
 	private static void setRuntimeState(String mode, String runtimeType) throws UnsupportedLookAndFeelException {
 		  if(mode.equals("Light") || mode.equals("Light".toLowerCase()) && runtimeType.equals("User Runtime")) {
-				UIManager.setLookAndFeel(new FlatLightLaf());				
+				UIManager.setLookAndFeel(new FlatLightLaf());		
+				new startup.StartupScreen().timer.start();
 		  }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase()) && runtimeType.equals("User Runtime")) {
 				UIManager.setLookAndFeel(new FlatDarkLaf());
+				new startup.StartupScreen().timer.start();
 		  }else if(mode.equals("Light") || mode.equals("Light".toLowerCase()) && runtimeType.equals("Developer Runtime")) {
 				UIManager.setLookAndFeel(new FlatLightLaf());				
+				new App();
 		  }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase()) && runtimeType.equals("Developer Runtime")) {
 				UIManager.setLookAndFeel(new FlatDarkLaf());
+		        new App();
 		  }
 	 }
 }
