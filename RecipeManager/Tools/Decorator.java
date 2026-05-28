@@ -24,8 +24,8 @@ public class Decorator implements java.awt.event.ActionListener {
     public Decorator(App app) {
         this.app = app;
         this.rl = new ResourceLoader();
-    	this.Burgerpick = new JMenuItem("Pick (60$)");
-    	this.Drinkpick = new JMenuItem("Pick (90$)");
+    	this.Burgerpick = new JMenuItem("Select (60$)");
+    	this.Drinkpick = new JMenuItem("Select (90$)");
     	this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
     }
@@ -36,7 +36,7 @@ public class Decorator implements java.awt.event.ActionListener {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings);
  				   new Sound().playSound("/sound/click_sound.wav");
- 	 			   Burgerpick.setText("Selecting more than once is disallowed, product is too expensive.");
+ 	 			   Burgerpick.setText("Can't Select twice or more, product is too expensive.");
  				   Burgerpick.setEnabled(false);
  				   app.buttonList.get(5).setEnabled(true);
  				   app.buttonList.get(5).addActionListener(this);
@@ -119,7 +119,7 @@ public class Decorator implements java.awt.event.ActionListener {
               imageTimer.start();
             } else {
             	Burgerpick.addActionListener(burgerAL);
-            	Burgerpick.setText("Selecting more than once is disallowed, product is too expensive.");
+            	Burgerpick.setText("Can't Select twice or more, product is too expensive.");
             	Burgerpick.setEnabled(false);
             	
                 app.labelList.get(2).setIcon(new ImageIcon(rl.getImage("/images/Burger.png")));
