@@ -1,5 +1,5 @@
-**RecipeManager is a small Desktop app which lets users select a few foods, check their Recipes, possible Allergen amount, Nutritional Information and even request them into a file.
-this Application provides a basic example of how Restaurants can make simple and clear UI for their users to order a specific food.**
+**RecipeManager is a small Desktop app which lets users select a few foods, check their Recipes, possible Allergen amount, Nutritional Information and even request them into a file and other unique features which come along with it.
+this Application By itself is Demonstrational, It isn't used for real-world Interaction, but it behaves as Recipe Lookup Application, it is not intended for anything Enterprise, it was built like this on purpose.**
               <p align="center">
                   <b>Latest version is RecipeManager v1.5!</b><br/>
                   <b>Consider choosing latest version for best user experience.</b><br/>
