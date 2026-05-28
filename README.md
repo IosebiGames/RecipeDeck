@@ -39,8 +39,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
 This project is licensed under the Apache License v2.0 - see the LICENSE file for details.
 
 <br/>**Important!**
-      <br/> RecipeManager is NOT an Enterprise Project, It is a small, demonstrational app built for experience-gaining purposes.
-      I had a specific goal to develop following App in this way. It is not intended for Enterprise operations, just portfolio-oritented build.
+      <br/> Images bellow that you see could be old. However, they can get renewed anytime.
 
 * Demonstration: 👇
 * Startup loading bar 📶:
