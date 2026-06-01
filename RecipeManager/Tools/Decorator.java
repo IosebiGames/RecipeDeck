@@ -55,12 +55,20 @@ public class Decorator implements java.awt.event.ActionListener {
             };
     		Burgerpick.setEnabled(true);
     		Burgerpick.setFocusable(false);
-    		Burgerpick.setForeground(Color.black);
+    		if(App.mode.equals("Dark")) {
+    			Burgerpick.setForeground(Color.white);
+    		}else if(App.mode.equals("Light")) {
+    			Burgerpick.setForeground(Color.black);
+    		}
     		Burgerpick.setFont(new Font("Arial", Font.BOLD, 15));
     		Burgerpick.addActionListener(burgerAL);
     		
     		Drinkpick.setFocusable(false);
-    		Drinkpick.setForeground(Color.black);
+    		if(App.mode.equals("Dark")) {
+    			Drinkpick.setForeground(Color.white);
+    		}else if(App.mode.equals("Light")) {
+    			Drinkpick.setForeground(Color.black);
+    		}
      		Drinkpick.setFont(new Font("Arial", Font.BOLD, 15));
     		Drinkpick.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
