@@ -27,6 +27,8 @@ public class App {
     public List<Font> FontList = new ArrayList<>();
     private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "", "Total Sum:", "", "", "", "", "", "", "", "Please Select Any product."};
     public static String[] buttonTexts = {"Burger:", "Steak:", "Ice-Cream:", "Chicken Salad:", "Tomato Salad:", "Next", "More"};
+    public static String mode = "Light";
+    
     private Font[] fonts = new Font[] {
         new Font("Tahoma", Font.BOLD, 2),
         new Font("Sitka Text", Font.BOLD, 31), 
@@ -61,8 +63,11 @@ public class App {
 		lb.createLabel(labelList.get(10), null, null, new Bounds(93, 63, 145, 14).getBounds(), false, panelList.get(2));
 		lb.createLabel(labelList.get(11), FontList.get(1), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
 		lb.createLabel(labelList.get(12), FontList.get(2), new Color(255, 165, 0), new Bounds(96, 38, 133, 14).getBounds(), false, panelList.get(3));
-		lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
-		
+		if(mode.equals("Light")) {
+			lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
+		}else if(mode.equals("Dark")) {
+			lb.createLabel(labelList.get(19), FontList.get(3), Color.white, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
+		}
 		button.createButton(buttonList.get(0), new Bounds(10, 93, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
 		button.createButton(buttonList.get(1), new Bounds(10, 124, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
 		button.createButton(buttonList.get(2), new Bounds(10, 153, 96, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
@@ -80,7 +85,7 @@ public class App {
 	}
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
-	    	 StartupScreen.setMode("Light", "User Runtime");
+	    	 StartupScreen.setMode(mode, "User Runtime");
 		});
 	 }
  }
