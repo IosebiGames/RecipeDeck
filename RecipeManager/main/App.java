@@ -53,7 +53,11 @@ public class App {
 		lb.createLabel(labelList.get(0), FontList.get(1), new Color(194, 126, 0), new Bounds(48, 11, 260, 54).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(1), null, null, new Bounds(179, 57, 151, 144).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(2), null, null, new Bounds(10, 57, 151, 144).getBounds(), false, panelList.get(0));
-		lb.createLabel(labelList.get(3), FontList.get(1), new Color(9, 121, 105), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
+		if(mode.equals("Dark")) {
+			lb.createLabel(labelList.get(3), FontList.get(1), new Color(20, 238, 206), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
+		}else if(mode.equals("Light")) {
+			lb.createLabel(labelList.get(3), FontList.get(1), new Color(9, 121, 105), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
+		}
 		lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 176, 18).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(5), null, null, new Bounds(104, 124, 176, 18).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 176, 18).getBounds(), false, panelList.get(1));
@@ -63,6 +67,7 @@ public class App {
 		lb.createLabel(labelList.get(10), null, null, new Bounds(93, 63, 145, 14).getBounds(), false, panelList.get(2));
 		lb.createLabel(labelList.get(11), FontList.get(1), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
 		lb.createLabel(labelList.get(12), FontList.get(2), new Color(255, 165, 0), new Bounds(96, 38, 133, 14).getBounds(), false, panelList.get(3));
+		
 		if(mode.equals("Light")) {
 			lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}else if(mode.equals("Dark")) {
