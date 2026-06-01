@@ -30,8 +30,7 @@ public class Decorator implements java.awt.event.ActionListener {
     	this.popup2 = new JPopupMenu();
     }
     public void decorate() {
-    		app.buttonList.get(5).setEnabled(false);
-        	 this.burgerAL = e -> {
+    		 this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings);
@@ -41,6 +40,8 @@ public class Decorator implements java.awt.event.ActionListener {
  				   app.buttonList.get(5).setEnabled(true);
  				   app.buttonList.get(5).addActionListener(this);
  				   savePaymentDetail(addings);
+ 				   app.labelList.get(19).setVisible(false);
+ 		    	   app.buttonList.get(5).setVisible(true);
  			   }
              };
              this.burgerAL2 = e -> {
@@ -48,7 +49,9 @@ public class Decorator implements java.awt.event.ActionListener {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings);
  				   new Sound().playSound("/sound/click_sound.wav");
- 			   }
+ 				   app.labelList.get(19).setVisible(false);
+ 		    	   app.buttonList.get(5).setVisible(true);
+ 		       }
             };
     		Burgerpick.setEnabled(true);
     		Burgerpick.setFocusable(false);
