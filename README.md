@@ -6,8 +6,8 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>Go to Releases -> Choose RecipeManager v1.5 -> Download jar</b>
 </p>
 
-<img width="828" height="509" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/app_image_dark.png?raw=true" />
-<img width="828" height="509" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/app_image_light.png?raw=true" />
+<img width="818" height="508" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/app_image.png?raw=true" />
+<img width="828" height="509" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/app_image2.png?raw=true" />
 
   # History of the RecipeManager:
    It all started in Early October of 2025, when I was in one of the Java 'Help groups' were people used to ask for Help there, so Helpers could answer.
