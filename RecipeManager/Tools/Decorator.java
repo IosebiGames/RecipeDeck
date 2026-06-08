@@ -33,7 +33,7 @@ public class Decorator implements java.awt.event.ActionListener {
     		 this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
- 				   app.labelList.get(12).setText("" + addings);
+ 				   app.labelList.get(12).setText("" + addings + " $");
  				   new Sound().playSound("/sound/click_sound.wav");
  	 			   Burgerpick.setText("Can't Select twice or more, product is too expensive.");
  				   Burgerpick.setEnabled(false);
@@ -47,7 +47,7 @@ public class Decorator implements java.awt.event.ActionListener {
              this.burgerAL2 = e -> {
  		       if(e.getSource()==Burgerpick) {
  				   addings += 60;
- 				   app.labelList.get(12).setText("" + addings);
+ 				   app.labelList.get(12).setText("" + addings + " $");
  				   new Sound().playSound("/sound/click_sound.wav");
  				   app.labelList.get(19).setVisible(false);
  		    	   app.buttonList.get(5).setVisible(true);
