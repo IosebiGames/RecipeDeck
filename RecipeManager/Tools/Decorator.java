@@ -30,6 +30,7 @@ public class Decorator implements java.awt.event.ActionListener {
     	this.popup2 = new JPopupMenu();
     }
     public void decorate() {
+    	     app.labelList.get(12).setText("0" + "$");
     		 this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
