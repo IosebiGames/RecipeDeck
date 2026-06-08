@@ -74,7 +74,7 @@ public class Decorator implements java.awt.event.ActionListener {
     			public void actionPerformed(ActionEvent e) {
     				if(e.getSource()==Drinkpick) {
     					addings += 90;
-    					app.labelList.get(12).setText("" + addings);
+    					app.labelList.get(12).setText("" + addings + " $");
     					new Sound().playSound("/sound/click_sound.wav");
     					savePaymentDetail(addings);
     				}
