@@ -25,7 +25,7 @@ public class App {
     public List<JButton> buttonList = new ArrayList<>();
     public List<JPanel> panelList = new ArrayList<>();
     public List<Font> FontList = new ArrayList<>();
-    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "", "Total Sum:", "", "", "", "", "", "", "", "Please Select Any product."};
+    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "", "Total Cost:", "", "", "", "", "", "", "", "Please Select Any product."};
     public static String[] buttonTexts = {"Burger:", "Steak:", "Ice-Cream:", "Chicken Salad:", "Tomato Salad:", "Next", "More"};
     public static String mode = "Light";
     
