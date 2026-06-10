@@ -48,10 +48,8 @@ This project is licensed under the Apache License v2.0 - see the LICENSE file fo
   ![gif alt](RecipeManager/images/choosing.gif)
 * Automatic Screen Cleanup 🧽:
   ![gif alt](RecipeManager/images/cleanup.gif)
-* More Information Tab 📜:
+* More Info Tab & Red Close Button Effect 📜:
   ![gif alt](RecipeManager/images/mInfo.gif)
-* Sneaky Close Button Effect 📕:
-  ![gif alt](RecipeManager/images/close_button_effect.gif)
 
   # RecipeManager development videos:
   - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)
