@@ -49,7 +49,7 @@ This project is licensed under the Apache License v2.0 - see the LICENSE file fo
 * Automatic Screen Cleanup 🧽:
   ![gif alt](RecipeManager/images/cleanup.gif)
 * More Information Tab 📜:
-  ![gif alt](RecipeManager/images/nutritional_info.gif)
+  ![gif alt](RecipeManager/images/mInfo.gif)
 * Sneaky Close Button Effect 📕:
   ![gif alt](RecipeManager/images/close_button_effect.gif)
 
