@@ -48,7 +48,11 @@ public class MoreTab {
 			counter++;
 			if(counter == 4) {
 				counter = 0;
-				buttonList.get(1).setBackground(Color.white);
+				if(App.mode.equals("Dark")) {
+					buttonList.get(1).setBackground(Color.black);
+				}else if(App.mode.equals("Light")) {
+					buttonList.get(1).setBackground(Color.white);
+				}
 				resetTimer.stop();
 			}
 		});
@@ -120,8 +124,24 @@ public class MoreTab {
 		
 		if(App.mode.equals("Dark")) {
 			StartupScreen.setMode("Dark",  null);
+			for(int i = 0; i < labelList.size(); i++) {
+                labelList.get(i).setForeground(Color.white);
+			}
+			buttonList.get(0).setForeground(Color.white);
+			buttonList.get(0).setBackground(Color.black);
+			buttonList.get(1).setForeground(Color.white);
+			buttonList.get(1).setBackground(Color.black);
+			return;
 		}else if(App.mode.equals("Light")) {
 			StartupScreen.setMode("Light",  null);
+			for(int i = 0; i < labelList.size(); i++) {
+                labelList.get(i).setForeground(Color.black);				
+			}
+			buttonList.get(0).setForeground(Color.black);
+			buttonList.get(0).setBackground(Color.white);
+			buttonList.get(1).setForeground(Color.black);
+			buttonList.get(1).setBackground(Color.white);
+            return;
 		}
 	}
 	private Font createFont(String fontName, int type, int size) {
