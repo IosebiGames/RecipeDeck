@@ -47,7 +47,7 @@ This project is licensed under the Apache License v2.0 - see the LICENSE file fo
 * Choose food products 🍔:
   ![gif alt](RecipeManager/images/choosing.gif)
 * Automatic Screen Cleanup 🧽:
-  ![gif alt](RecipeManager/images/automatic_screen_cleanup.gif)
+  ![gif alt](RecipeManager/images/cleanup.gif)
 * More Information Tab 📜:
   ![gif alt](RecipeManager/images/nutritional_info.gif)
 * Sneaky Close Button Effect 📕:
