@@ -10,7 +10,6 @@ import com.formdev.flatlaf.FlatLightLaf;
 import main.App;
 
 public class StartupScreen {
-	
 	private JFrame window;
 	private JProgressBar bar;
 	private int procentage = 0;
