@@ -69,9 +69,9 @@ public class App {
 		lb.createLabel(labelList.get(12), FontList.get(2), new Color(255, 165, 0), new Bounds(96, 38, 133, 14).getBounds(), false, panelList.get(3));
 		
 		if(mode.equals("Light")) {
-			lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
+			lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}else if(mode.equals("Dark")) {
-			lb.createLabel(labelList.get(19), FontList.get(3), Color.white, new Bounds(82, 214, 210, 40).getBounds(), false, panelList.get(0));
+			lb.createLabel(labelList.get(19), FontList.get(3), Color.white, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}
 		button.createButton(buttonList.get(0), new Bounds(10, 93, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
 		button.createButton(buttonList.get(1), new Bounds(10, 124, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
