@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import Tools.Bounds;
+import Tools.Fonts;
 import Tools.ResourceLoader;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -16,8 +17,10 @@ public class StartupScreen {
 	public Timer timer;
 	private boolean startup_permission = true;
 	public static boolean tracker_permission = false;
+	private Fonts f;
 	
 	public StartupScreen() {
+	   this.f = new Fonts();
 	   window = new JFrame("RecipeManager");
 	   window.setResizable(false);
 	   window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,11 +30,12 @@ public class StartupScreen {
        window.setVisible(true);
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
+       f.AllowExternalFont("src/fonts/Inter_bold.ttf");
        
        if(App.mode.equals("Dark")) {
-    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Segoe UI", Font.BOLD, 15));
+    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
        }else if(App.mode.equals("Light")) {
-    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Segoe UI", Font.BOLD, 15));
+    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
        }
        timer = new Timer(100, new ActionListener() {
     	   public void actionPerformed(ActionEvent e) {
