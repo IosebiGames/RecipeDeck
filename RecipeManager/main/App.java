@@ -21,20 +21,14 @@ public class App {
     private RecipeHandler rh = new RecipeHandler(this);
     public MoreTab mt = new MoreTab(this, rh);
     private Button button = new Button();
+    private Fonts f = new Fonts();
     public List<JLabel> labelList = new ArrayList<>();
     public List<JButton> buttonList = new ArrayList<>();
     public List<JPanel> panelList = new ArrayList<>();
-    public List<Font> FontList = new ArrayList<>();
-    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "", "Total Cost:", "", "", "", "", "", "", "", "Please Select Any product."};
+    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "", "Total Cost:", "0" + "$", "", "", "", "", "", "", "Please Select Any product."};
     public static String[] buttonTexts = {"Burger:", "Steak:", "Ice-Cream:", "Chicken Salad:", "Tomato Salad:", "Next", "More"};
-    public static String mode = "Light";
-    
-    private Font[] fonts = new Font[] {
-        new Font("Tahoma", Font.BOLD, 2),
-        new Font("Sitka Text", Font.BOLD, 31), 
-        new Font("Trebuchet MS", Font.BOLD, 18), 
-        new Font("Tahoma", Font.BOLD, 15)
-    };
+    public static String mode = "Dark";
+   
     public App() { 
 		 for(String labelText : labelTexts) {
 			labelList.add(new JLabel(labelText));
@@ -42,36 +36,35 @@ public class App {
 			buttonList.add(new JButton(buttonText));
 		}for(int i = 0; i <= 4; i++) {
         	panelList.add(new JPanel());
-        }for(Font font : fonts) {
-        	FontList.add(font);
-        }
+		}
         screen.createWindow();
-
+        f.AllowExternalFont("src/fonts/Inter_bold.ttf");
+        
 		for(int i = 0; i < panelList.size(); i++) {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
-		lb.createLabel(labelList.get(0), FontList.get(1), new Color(194, 126, 0), new Bounds(48, 11, 260, 54).getBounds(), false, panelList.get(0));
+		lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 31), new Color(194, 126, 0), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(1), null, null, new Bounds(179, 57, 151, 144).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(2), null, null, new Bounds(10, 57, 151, 144).getBounds(), false, panelList.get(0));
 		if(mode.equals("Dark")) {
-			lb.createLabel(labelList.get(3), FontList.get(1), new Color(20, 238, 206), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(20, 238, 206), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
 		}else if(mode.equals("Light")) {
-			lb.createLabel(labelList.get(3), FontList.get(1), new Color(9, 121, 105), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(9, 121, 105), new Bounds(114, 11, 151, 54).getBounds(), false, panelList.get(1));
 		}
 		lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 176, 18).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(5), null, null, new Bounds(104, 124, 176, 18).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 176, 18).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(7),null, null, new Bounds(140, 211, 166, 23).getBounds(), false, panelList.get(1));
 		lb.createLabel(labelList.get(8), null, null, new Bounds(140, 180, 166, 23).getBounds(), false, panelList.get(1));
-		lb.createLabel(labelList.get(9), FontList.get(1), Color.red, new Bounds(93, 11, 210, 54).getBounds(), false, panelList.get(2));
+		lb.createLabel(labelList.get(9), new Font("Inter", Font.BOLD, 31), Color.red, new Bounds(93, 11, 210, 54).getBounds(), false, panelList.get(2));
 		lb.createLabel(labelList.get(10), null, null, new Bounds(93, 63, 145, 14).getBounds(), false, panelList.get(2));
-		lb.createLabel(labelList.get(11), FontList.get(1), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
-		lb.createLabel(labelList.get(12), FontList.get(2), new Color(255, 165, 0), new Bounds(96, 38, 133, 14).getBounds(), false, panelList.get(3));
+		lb.createLabel(labelList.get(11), new Font("Inter", Font.BOLD, 31), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
+		lb.createLabel(labelList.get(12), new Font("Inter", Font.BOLD, 18), new Color(255, 165, 0), new Bounds(96, 44, 133, 14).getBounds(), false, panelList.get(3));
 		
 		if(mode.equals("Light")) {
-			lb.createLabel(labelList.get(19), FontList.get(3), Color.black, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
+			lb.createLabel(labelList.get(19), new Font("Inter", Font.BOLD, 15), Color.black, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}else if(mode.equals("Dark")) {
-			lb.createLabel(labelList.get(19), FontList.get(3), Color.white, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
+			lb.createLabel(labelList.get(19), new Font("Inter", Font.BOLD, 15), Color.white, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}
 		button.createButton(buttonList.get(0), new Bounds(10, 93, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
 		button.createButton(buttonList.get(1), new Bounds(10, 124, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
