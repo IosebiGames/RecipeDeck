@@ -20,6 +20,7 @@ public class Decorator implements java.awt.event.ActionListener {
     private int addings = 0;
     private ResourceLoader rl;
     private ActionListener burgerAL, burgerAL2;
+    private Fonts f;
     
     public Decorator(App app) {
         this.app = app;
@@ -28,9 +29,10 @@ public class Decorator implements java.awt.event.ActionListener {
     	this.Drinkpick = new JMenuItem("Select (90$)");
     	this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
+    	this.f = new Fonts();
     }
     public void decorate() {
-    	     app.labelList.get(12).setText("0" + "$");
+    	     f.AllowExternalFont("src/fonts/Inter_bold.ttf");
     		 this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
@@ -61,7 +63,7 @@ public class Decorator implements java.awt.event.ActionListener {
     		}else if(App.mode.equals("Light")) {
     			Burgerpick.setForeground(Color.black);
     		}
-    		Burgerpick.setFont(new Font("Arial", Font.BOLD, 15));
+    		Burgerpick.setFont(new Font("Inter", Font.BOLD, 15));
     		Burgerpick.addActionListener(burgerAL);
     		
     		Drinkpick.setFocusable(false);
@@ -70,7 +72,7 @@ public class Decorator implements java.awt.event.ActionListener {
     		}else if(App.mode.equals("Light")) {
     			Drinkpick.setForeground(Color.black);
     		}
-     		Drinkpick.setFont(new Font("Arial", Font.BOLD, 15));
+     		Drinkpick.setFont(new Font("Inter", Font.BOLD, 15));
     		Drinkpick.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
     				if(e.getSource()==Drinkpick) {
@@ -95,7 +97,7 @@ public class Decorator implements java.awt.event.ActionListener {
     		app.labelList.get(1).setIcon(new ImageIcon(rl.getImage("/images/TomatoSalad.png")));
     		app.labelList.get(1).setBorder(BorderFactory.createLineBorder(Color.black));
     		app.labelList.get(1).setComponentPopupMenu(popup2);
-    		app.labelList.get(10).setFont(new Font("Arial", Font.BOLD, 15));
+    		app.labelList.get(10).setFont(new Font("Inter", Font.BOLD, 15));
     }
     public void actionPerformed(ActionEvent e) {
     		Burgerpick.setText("Pick (60$)");
