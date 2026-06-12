@@ -1,6 +1,7 @@
 package recipeSystem;
 
 import javax.swing.*;
+import Tools.Fonts;
 import java.awt.Font;
 import java.io.*;
 import main.App;
@@ -9,9 +10,11 @@ public class RecipeHandler {
     private App app;
     private int counter = 0, allergenAmount = 0;
     public Timer timer;
+    private Fonts f;
     
     public RecipeHandler(App app) {
         this.app = app;
+        this.f = new Fonts();
         
         timer = new Timer(1000, _ -> {
             counter++;
@@ -37,8 +40,9 @@ public class RecipeHandler {
         });
     }
     public void startRecipeSystem() {
-    	for(int i = 4; i <= 8; i++) app.labelList.get(i).setFont(new Font("Segoe UI", Font.BOLD, 11));
-    
+    	f.AllowExternalFont("src/fonts/Inter_bold.ttf");
+    	for(int i = 4; i <= 8; i++) app.labelList.get(i).setFont(new Font("Inter", Font.BOLD, 12));
+    	
     	app.buttonList.get(6).addActionListener(_ -> {
             timer.stop();
             app.mt.openMoreTab();
