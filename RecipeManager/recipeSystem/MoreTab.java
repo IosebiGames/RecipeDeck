@@ -78,10 +78,10 @@ public class MoreTab {
 			buttonList.get(i).setBackground(Color.white);
 			buttonList.get(i).setForeground(Color.black);
 		}
-		l.createLabel(labelList.get(0), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(28, -8, 181, 63).getBounds(), false, null);
-		l.createLabel(labelList.get(1), createFont("Inter", Font.BOLD, 18), Color.black, new Bounds(10, 31, 118, 51).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(0), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(28, -8, 181, 63).getBounds(), false, null);
+		l.createLabel(labelList.get(1), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 31, 118, 51).getBounds(), false, PanelList.get(0));
 		l.createLabel(labelList.get(2), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 73, 177, 51).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(3), createFont("Inter", Font.BOLD, 18), Color.black, new Bounds(10, 136, 175, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(3), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 136, 175, 41).getBounds(), false, PanelList.get(0));
 		l.createLabel(labelList.get(4), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 96, 165, 41).getBounds(), false, PanelList.get(0));
 		l.createLabel(labelList.get(5), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 116, 165, 41).getBounds(), false, PanelList.get(0));
 		l.createLabel(labelList.get(6), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 156, 175, 41).getBounds(), false, PanelList.get(0));
