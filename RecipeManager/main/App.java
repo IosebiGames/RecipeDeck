@@ -43,7 +43,7 @@ public class App {
 		for(int i = 0; i < panelList.size(); i++) {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
-		lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 31), new Color(194, 126, 0), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
+		lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 31), new Color(225, 178, 89), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(1), null, null, new Bounds(179, 57, 151, 144).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(2), null, null, new Bounds(10, 57, 151, 144).getBounds(), false, panelList.get(0));
 		if(mode.equals("Dark")) {
