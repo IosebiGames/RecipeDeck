@@ -16,10 +16,8 @@ public class StartupScreen {
 	public Timer timer;
 	private boolean startup_permission = true;
 	public static boolean tracker_permission = false;
-	private Fonts f;
 	
 	public StartupScreen() {
-	   this.f = new Fonts();
 	   window = new JFrame("RecipeDeck");
 	   window.setResizable(false);
 	   window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +27,6 @@ public class StartupScreen {
        window.setVisible(true);
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
-       f.AllowExternalFont("src/fonts/Inter_bold.ttf");
        bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
 
        timer = new Timer(100, _ -> {
@@ -62,7 +59,8 @@ public class StartupScreen {
 		 bar.setBackground(bc);
 		 bar.setForeground(fg);
 		 bar.setStringPainted(extrab);
-		 bar.setFont(f);
+		 Fonts.AllowExternalFont("src/fonts/Inter_bold.ttf");
+	     bar.setFont(f);
 		 window.add(bar);
 		 return bar;
 	}
