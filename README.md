@@ -1,15 +1,15 @@
-**RecipeManager is a small Desktop app which lets users select a few foods, check their Recipes, possible Allergen amount, Nutritional Information and even request them into a file and other unique features which come along with it.
+**RecipeDeck (Formely known as RecipeManager) is a small Desktop app which lets users select a few foods, check their Recipes, possible Allergen amount, Nutritional Information and even request them into a file and other unique features which come along with it.
 this Application By itself is Demonstrational, It isn't used for real-world Interaction, but it behaves as Recipe Lookup Application, it is not intended for anything Enterprise, it was built like this on purpose.**
               <p align="center">
-                  <b>Latest version is RecipeManager v1.5!</b><br/>
+                  <b>Latest version is RecipeDeck v1.5!</b><br/>
                   <b>Consider choosing latest version for best user experience.</b><br/>
-                  <b>Go to Releases -> Choose RecipeManager v1.5 -> Download jar</b>
+                  <b>Go to Releases -> Choose RecipeDeck v1.5 -> Download jar</b>
 </p>
 
 <img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/image_dark.png?raw=true" />
 <img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/image_light.png?raw=true" />
 
-  # History of the RecipeManager:
+  # History of the RecipeDeck:
   In October of 2025, I was joined in one of the Java "Help Group" where people could ask for their Help and get answers from Helpers related to Java.
      Many days ago in that group, one person asked for Help but Since Helpers were dishonest and quick, they didn't answer to them.
      I respectfully and professionaly contacted them. After knowing that Help was still relevant, we agreed that I'd make App for them since it was needed for their coursework.
@@ -28,13 +28,13 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
        - November 9 2025 (final Hand-over time).<br>
        
   # How was the app made:
-   RecipeManager is made in Java Swing (in-built Framework in JDK for GUI development) which is often being paired with Java AWT (Abstract Window Toolkit), Swing is part of Java Fundation Classes (JFC) and is responsible for GUI Window along with components that you see on screen. But Fonts, Colors and other additions come from AWT.
+   RecipeDeck is made in Java Swing (in-built Framework in JDK for GUI development) which is often being paired with Java AWT (Abstract Window Toolkit), Swing is part of Java Fundation Classes (JFC) and is responsible for GUI Window along with components that you see on screen. But Fonts, Colors and other additions come from AWT.
    FlatLaf is small key library here which Gives this Application an Modern Look & Feel. Click sounds are being managed by Java Sound API (Known as Java Sound).
   ### How it ended up:
    the app now has became mine, I still maintain and improve it gradually. I didn't share Source code, jar file, Project files with them at all so they've got nothing.
-   In fact, RecipeManager has undergone BUNCH of changes by today.
+   In fact, RecipeDeck has undergone BUNCH of changes by today.
    
-  **How to use RecipeManager:**<br/>
+  **How to use RecipeDeck:**<br/>
     Make sure that you have a Latest JDK Installed -> Go to 'Releases' section of the Repo -> navigate to Latest Release -> Download jar files there and run it.
   ### License
 This project is licensed under the Apache License v2.0 - see the LICENSE file for details.
@@ -52,6 +52,6 @@ This project is licensed under the Apache License v2.0 - see the LICENSE file fo
 * More Info Tab & Red Close Button Effect 📜:
   ![gif alt](RecipeManager/images/mInfo.gif)
 
-  # RecipeManager videos:
+  # RecipeDeck videos:
   - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)
   - [RecipeManager | Full showcase](https://youtu.be/U4Fb3SS24gE)
