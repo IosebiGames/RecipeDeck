@@ -21,7 +21,6 @@ public class App {
     private RecipeHandler rh = new RecipeHandler(this);
     public MoreTab mt = new MoreTab(this, rh);
     private Button button = new Button();
-    private Fonts f = new Fonts();
     public List<JLabel> labelList = new ArrayList<>();
     public List<JButton> buttonList = new ArrayList<>();
     public List<JPanel> panelList = new ArrayList<>();
@@ -38,7 +37,6 @@ public class App {
         	panelList.add(new JPanel());
 		}
         screen.createWindow();
-        f.AllowExternalFont("src/fonts/Inter_bold.ttf");
         
 		for(int i = 0; i < panelList.size(); i++) {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
