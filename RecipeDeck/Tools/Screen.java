@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 
 public class Screen {
-	public JFrame window;
+	public static JFrame window;
 	private static JFrame anotherWindow;
 	
 	public Screen() {
-		window = new JFrame("RecipeManager");
+		window = new JFrame("RecipeDeck");
 	}
 	public void createWindow() {
 		window.setResizable(false);
