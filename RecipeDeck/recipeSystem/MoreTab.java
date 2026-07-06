@@ -31,9 +31,9 @@ public class MoreTab {
     
    public MoreTab(App app, RecipeHandler rh) {
 		this.app = app;
-		this.p = new Panel(app.screen);
+		this.p = new Panel();
 		this.rh = rh;
-		this.l = new Labels(app.screen);
+		this.l = new Labels();
 		this.b = new Button();
 		this.f = new Fonts();
 	    this.labelTexts = new String[] {"Product:", "Calories:", "Vitamins:", "Fats:", "Sodium:", "Protein:", "Water:", "Allergens:"};
