@@ -7,12 +7,12 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 
 public class Fonts {
-	private InputStream fontInput;
-	private File fontFile;
-	private GraphicsEnvironment ge;
-   	private Font newFont;
+	private static InputStream fontInput;
+	private static File fontFile;
+	private static GraphicsEnvironment ge;
+   	private static Font newFont;
    	
-	public Font AllowExternalFont(String fontPath) {
+	public static Font AllowExternalFont(String fontPath) {
         try {
         	fontFile = new File(fontPath);
         	fontInput = new FileInputStream(fontFile);
