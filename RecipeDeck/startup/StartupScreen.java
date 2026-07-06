@@ -2,7 +2,6 @@ package startup;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import Tools.Bounds;
 import Tools.Fonts;
 import Tools.ResourceLoader;
@@ -21,7 +20,7 @@ public class StartupScreen {
 	
 	public StartupScreen() {
 	   this.f = new Fonts();
-	   window = new JFrame("RecipeManager");
+	   window = new JFrame("RecipeDeck");
 	   window.setResizable(false);
 	   window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   window.setPreferredSize(new Dimension(270, 100));
@@ -31,18 +30,12 @@ public class StartupScreen {
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
        f.AllowExternalFont("src/fonts/Inter_bold.ttf");
-       
-       if(App.mode.equals("Dark")) {
-    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
-       }else if(App.mode.equals("Light")) {
-    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
-       }
-       timer = new Timer(100, new ActionListener() {
-    	   public void actionPerformed(ActionEvent e) {
-    		   procentage++;
-    		   bar.setValue(procentage);
-    		   check(startup_permission);
-    	   }			
+       bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+
+       timer = new Timer(100, _ -> {
+    	   procentage++;
+    	   bar.setValue(procentage);
+    	   check(startup_permission);
        });
 	}
 	private void check(boolean p) {
