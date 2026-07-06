@@ -66,13 +66,13 @@ public class App {
 		}else if(mode.equals("Dark")) {
 			lb.createLabel(labelList.get(19), new Font("Inter", Font.BOLD, 15), Color.white, new Bounds(70, 214, 210, 40).getBounds(), false, panelList.get(0));
 		}
-		button.createButton(buttonList.get(0), new Bounds(10, 93, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
-		button.createButton(buttonList.get(1), new Bounds(10, 124, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
-		button.createButton(buttonList.get(2), new Bounds(10, 153, 96, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
-		button.createButton(buttonList.get(3), new Bounds(10, 183, 126, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
-		button.createButton(buttonList.get(4), new Bounds(10, 213, 126, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black);
-		button.createButton(buttonList.get(5), new Bounds(108, 209, 130, 40).getBounds(), false, panelList.get(0), false, Color.white, Color.black);
-		button.createButton(buttonList.get(6), new Bounds(113, 133, 210, 40).getBounds(), false, panelList.get(2), false, Color.white, Color.black);
+		button.createButton(buttonList.get(0), new Bounds(10, 93, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(1), new Bounds(10, 124, 86, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(2), new Bounds(10, 153, 96, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(3), new Bounds(10, 183, 126, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(4), new Bounds(10, 213, 126, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(5), new Bounds(108, 209, 130, 40).getBounds(), false, panelList.get(0), false, Color.white, Color.black, false);
+		button.createButton(buttonList.get(6), new Bounds(113, 133, 210, 40).getBounds(), false, panelList.get(2), false, Color.white, Color.black, false);
 
 		for(int i = 0; i < Bounds.yPostions.length; i++) {
 			sp.createSeparator(labelList.get(13+i), new Bounds(336, Bounds.yPostions[i], 115, 42).getBounds(), true);
