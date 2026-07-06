@@ -71,8 +71,8 @@ public class MoreTab {
 			}
 		});
 		p.createPanel(PanelList.get(0), new Bounds(29, 92, 239, 311).getBounds(), false);
-		b.createButton(buttonList.get(0), new Bounds(10, 216, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
-		b.createButton(buttonList.get(1), new Bounds(10, 260, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
+		b.createButton(buttonList.get(0), new Bounds(10, 216, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black, false);
+		b.createButton(buttonList.get(1), new Bounds(10, 260, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black, false);
 		
 		for(int i = 0; i <= 1; i++) {
 			buttonList.get(i).setBackground(Color.white);
