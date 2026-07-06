@@ -20,8 +20,8 @@ public class TextBox {
     public TextBox(App app) {
 		this.app = app;
 		this.date = LocalDate.now();
-	    this.lastDate = 26;
-	    this.lastMonth = 6;
+	    this.lastDate = 6;
+	    this.lastMonth = 7;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
 	    this.daysPerMonth = 31;
@@ -46,9 +46,9 @@ public class TextBox {
 			textPane.setContentType("text/html");	
 			setInformation("<html><pre style='font-family:sans-serif; font-size:12px;'>"
 				 + "                        What's New: " + "<br>"
-				 + "                          - Imprecise Payment Bug Fix <br>"
-				 + "                          - Better Runtime                           <br>"
-				 + "   Released: 26.06.2026 " + "<font color='red'>(Tracker Disabled)</font>"
+				 + "                          - Fixed count appearance <br>"
+				 + "                          - Reducing unnecessary code                           <br>"
+				 + "   Released: 6.07.2026 " + "<font color='red'>(Tracker Disabled)</font>"
 				 + "</pre></html>");
 		}
 	}
@@ -59,13 +59,13 @@ public class TextBox {
 		 textPane.setToolTipText(warningTip);
 		 if(latestMonth > lastMonth && latestDate == lastDate) {
 			 daysAgo = " (" + String.valueOf(latestMonth - lastMonth) + "mo)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 26.06.2026" + daysAgo);
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 6.07.2026" + daysAgo);
 		 }else if(latestDate < lastDate) {
 			 monthsAgo = " (" + (daysPerMonth - (lastDate -= latestDate)) + "d)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 26.06.2026" + monthsAgo);
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 6.07.2026" + monthsAgo);
 		 }else if(lastDate == latestDate && lastMonth == latestMonth) {
 			 daysAgo = "(<font color='green'><b>Today</b></font>)";
-			 setInformation("<html><pre style='font-family:sans-serif; font-size:11px;'>" + "                        What's New: <br>"  + "                          - Background Bug Fixes <br>"  + "                          <br>" + "   Released: 26.06.2026 " + daysAgo + "</pre></html>" + daysAgo);
+			 setInformation("<html><pre style='font-family:sans-serif; font-size:11px;'>" + "                        What's New: <br>"  + "                          - Background Bug Fixes <br>"  + "                          <br>" + "   Released: 6.07.2026 " + daysAgo + "</pre></html>" + daysAgo);
 		 }else if(lastDate == 0 && lastMonth == 0) {
 			 textPane.setContentType("text/plain");
 			 textPane.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 15));
