@@ -19,7 +19,6 @@ public class MoreTab {
     private RecipeHandler rh;
     private Labels l;
 	private Button b;
-	private Fonts f;
 	private Timer resetTimer;
     private int counter = 0;
     private String[] text, labelTexts;
@@ -35,7 +34,6 @@ public class MoreTab {
 		this.rh = rh;
 		this.l = new Labels();
 		this.b = new Button();
-		this.f = new Fonts();
 	    this.labelTexts = new String[] {"Product:", "Calories:", "Vitamins:", "Fats:", "Sodium:", "Protein:", "Water:", "Allergens:"};
     }
 	public void openMoreTab() {
@@ -45,7 +43,6 @@ public class MoreTab {
 		buttonList.add(new JButton("Request all Recipes"));
 		buttonList.add(new JButton("Close"));
 	    PanelList.add(new JPanel());
-	    f.AllowExternalFont("src/fonts/Inter_bold.ttf");
 	    
 		resetTimer = new Timer(1000, _ -> {
 			counter++;
