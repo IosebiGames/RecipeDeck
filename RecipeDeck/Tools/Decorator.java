@@ -20,7 +20,6 @@ public class Decorator implements java.awt.event.ActionListener {
     private int addings = 0;
     private ResourceLoader rl;
     private ActionListener burgerAL, burgerAL2;
-    private Fonts f;
     
     public Decorator(App app) {
         this.app = app;
@@ -29,11 +28,9 @@ public class Decorator implements java.awt.event.ActionListener {
     	this.Drinkpick = new JMenuItem("Select (90$)");
     	this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
-    	this.f = new Fonts();
     }
     public void decorate() {
-    	     f.AllowExternalFont("src/fonts/Inter_bold.ttf");
-    		 this.burgerAL = e -> {
+    	     this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings + " $");
@@ -131,7 +128,7 @@ public class Decorator implements java.awt.event.ActionListener {
                     }
                 });
               imageTimer.start();
-            } else {
+            }else {
             	Burgerpick.addActionListener(burgerAL);
             	Burgerpick.setText("Can't Select twice or more, product is too expensive.");
             	Burgerpick.setEnabled(false);
@@ -144,7 +141,7 @@ public class Decorator implements java.awt.event.ActionListener {
                 app.buttonList.get(5).setText("Next");
                 showingNext = false;
                 
-                if (imageTimer != null) {
+                if(imageTimer != null) {
                     imageTimer.stop();
                     counter = 0;
                 }
