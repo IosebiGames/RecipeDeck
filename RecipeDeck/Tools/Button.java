@@ -6,13 +6,10 @@ import java.awt.event.*;
 import sound.Sound;
 
 public class Button {
-	private Fonts f;
-
 	public void createButton(JButton b, Rectangle rect, boolean focusableStatus, JPanel panel, boolean visible, Color bc, Color fc, boolean soundless) {
-        f = new Fonts();
-        f.AllowExternalFont("src/fonts/Inter_bold.ttf");
         b.setFocusable(focusableStatus);
         b.setBounds(rect.getBounds());
+        Fonts.AllowExternalFont("src/fonts/Inter_bold.ttf");
         b.setFont(new Font("Inter", Font.BOLD, 12));
         b.setBackground(bc);
         b.setForeground(fc);
