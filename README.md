@@ -6,8 +6,8 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>Go to Releases -> Choose RecipeDeck v1.5 -> Download jar</b>
 </p>
 
-<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/image_dark.png?raw=true" />
-<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeManager/blob/main/RecipeManager/images/image_light.png?raw=true" />
+<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_dark.png?raw=true" />
+<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_light.png?raw=true" />
 
   # History of the RecipeDeck:
   In October of 2025, I was joined in one of the Java "Help Group" where people could ask for their Help and get answers from Helpers related to Java.
@@ -44,13 +44,13 @@ This project is licensed under the Apache License v2.0 - see the LICENSE file fo
 
 * Demonstration: 👇
 * Startup loading bar 📶:
-  ![gif alt](RecipeManager/images/startup.gif)
+  ![gif alt](RecipeDeck/images/startup.gif)
 * Choose food products 🍔:
-  ![gif alt](RecipeManager/images/choosing.gif)
+  ![gif alt](RecipeDeck/images/choosing.gif)
 * Automatic Screen Cleanup 🧽:
-  ![gif alt](RecipeManager/images/cleanup.gif)
+  ![gif alt](RecipeDeck/images/cleanup.gif)
 * More Info Tab & Red Close Button Effect 📜:
-  ![gif alt](RecipeManager/images/mInfo.gif)
+  ![gif alt](RecipeDeck/images/mInfo.gif)
 
   # RecipeDeck videos:
   - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)
