@@ -1,4 +1,4 @@
-**RecipeDeck (Formely known as RecipeManager, got Renamed on July 6 2026) is a small Desktop app which lets users select a few foods, check their Recipes, possible Allergen amount, Nutritional Information and even request them into a file and other unique features which come along with it.
+**RecipeDeck (Formely known as RecipeManager, got Renamed on July 6 2026) is a small Desktop app designed to let users select a few foods, their Recipes, check possible Allergen content, Nutritional Information and even request them into a file with other unique features which come along with it.
 this Application By itself is Demonstrational, It isn't used for real-world Interaction, but it behaves as Recipe Lookup Application, it is not intended for anything Enterprise, it was built like this on purpose.**
               <p align="center">
                   <b>Latest version is RecipeDeck v1.5!</b><br/>
