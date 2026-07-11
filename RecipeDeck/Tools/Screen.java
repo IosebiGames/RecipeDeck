@@ -17,11 +17,10 @@ public class Screen {
         window.setPreferredSize(new Dimension(804, 484));
         window.pack();
         window.setLocationRelativeTo(null);
-        window.setVisible(true);
         window.getContentPane().setLayout(null);
         window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
- 	}
-	public static JFrame createWindow(String title, boolean resizable, boolean visible, int w, int h, int closeOperation, Image icon, WindowAdapter WindowH) {
+    }
+	public static JFrame createWindow(String title, boolean resizable, int w, int h, int closeOperation, Image icon, WindowAdapter WindowH) {
 		anotherWindow = new JFrame(title);
 		anotherWindow.setResizable(resizable);
 		anotherWindow.getContentPane().setLayout(null);
@@ -29,7 +28,6 @@ public class Screen {
 		anotherWindow.setPreferredSize(new Dimension(w, h));
 		anotherWindow.pack();
 		anotherWindow.setLocationRelativeTo(null);
-		anotherWindow.setVisible(visible);
 	    anotherWindow.setIconImage(icon);
 	    anotherWindow.addWindowListener(WindowH);
 	    return anotherWindow;
