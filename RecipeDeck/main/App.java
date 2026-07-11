@@ -24,9 +24,9 @@ public class App {
     public List<JLabel> labelList = new ArrayList<>();
     public List<JButton> buttonList = new ArrayList<>();
     public List<JPanel> panelList = new ArrayList<>();
-    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "0", "Total Cost:", "0" + "$", "", "", "", "", "", "", "Please Select Any product."};
+    private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "0", "Total Cost:", "0" + "$", "", "", "", "", "", "", "Please Select Any Product."};
     public static String[] buttonTexts = {"Burger", "Steak", "Ice-Cream", "Chicken Salad", "Tomato Salad", "Next", "More"};
-    public static String mode = "Light";
+    public static String mode = "Dark";
    
     public App() { 
 		 for(String labelText : labelTexts) {
@@ -77,7 +77,7 @@ public class App {
 		}
 		dec.decorate();
 	    rh.startRecipeSystem();
-	    tb.validate(); 	    
+	    tb.validate(); 	 
 	}
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
