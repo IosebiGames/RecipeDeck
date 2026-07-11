@@ -6,8 +6,8 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>Go to Releases -> Choose RecipeDeck v1.5 -> Download jar</b>
 </p>
 
-<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_dark.png?raw=true" />
-<img width="816" height="504" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_light.png?raw=true" />
+<img width="812" height="495" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_dark.png?raw=true" />
+<img width="807" height="491" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_light.png?raw=true" />
 
   # History of the RecipeDeck:
   In October of 2025, I was joined in one of the Java "Help Group" where people could ask for their Help and get answers from Helpers related to Java.
@@ -17,7 +17,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
      a few days later after conversation started (Somewhere Between October 8-11 2025) Development started and App was fully complete 10 days earlier (on October 20 2025).
    Person was pretty respectful and also greatful but kind of busy since they replied once every 2/4 days. I used to send them progress when working so they replied when they could.
    they have answered on October 27 and said that will talk tomorrow, but when the deadline came on October 30, they haven't answered anything.
-   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 220+ days.<br>
+   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 240+ days.<br>
      Timelines:<br>
        - October 8 2025 (Beginning of the conversation)<br>
        - October 10 2025 (Very first progress)<br>
