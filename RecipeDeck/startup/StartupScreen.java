@@ -5,6 +5,8 @@ import java.awt.*;
 import Tools.Bounds;
 import Tools.Fonts;
 import Tools.ResourceLoader;
+import Tools.Screen;
+
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import main.App;
@@ -24,11 +26,11 @@ public class StartupScreen {
 	   window.setPreferredSize(new Dimension(270, 100));
        window.pack();
        window.setLocationRelativeTo(null);
-       window.setVisible(true);
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
        bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
-
+	   window.setVisible(true);
+	   
        timer = new Timer(100, _ -> {
     	   procentage++;
     	   bar.setValue(procentage);
@@ -44,6 +46,7 @@ public class StartupScreen {
 				procentage = 100; 
 				window.dispose();
 				new App();
+				Screen.window.setVisible(true);   
 			}
 		}else {
 			if(procentage == 81) bar.setString("Shutting down...");
