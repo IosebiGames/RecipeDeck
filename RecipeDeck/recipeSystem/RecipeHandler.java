@@ -2,7 +2,6 @@ package recipeSystem;
 
 import javax.swing.*;
 import java.awt.Font;
-import java.io.*;
 import main.App;
 
 public class RecipeHandler {
@@ -79,21 +78,5 @@ public class RecipeHandler {
             app.labelList.get(10).setText("" + allergenAmount);
             app.buttonList.get(4).setEnabled(false);
         });
-    }
-    public void writeAllergen(String fileName, String Allergen) {
-        try {
-            System.setOut(new PrintStream(fileName));
-            System.out.println(Allergen);
-        } catch (IOException e) {
-            IO.println("Can't write Allergen: " + e.getMessage());
-        }
-    }
-    public void writeRecipe(String fileName, String recipe) {
-        try {
-            System.setOut(new PrintStream(fileName));
-            System.out.println(recipe);
-        } catch (IOException e) {
-            IO.println("Can't write Recipe: " + e.getMessage());
-        }
     }
 }
