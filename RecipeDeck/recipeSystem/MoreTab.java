@@ -25,7 +25,7 @@ public class MoreTab {
     public ArrayList<JLabel> labelList = new ArrayList<>();
     public ArrayList<JButton> buttonList = new ArrayList<>();
     public ArrayList<JPanel> PanelList = new ArrayList<>();
-    private final String[] products = new String[] {"Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
+    private final String[] products = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
     private JComboBox<?> productBox = new JComboBox<>(products);
     
    public MoreTab(App app, RecipeHandler rh) {
@@ -34,10 +34,10 @@ public class MoreTab {
 		this.rh = rh;
 		this.l = new Labels();
 		this.b = new Button();
-	    this.labelTexts = new String[] {"Product:", "Calories:", "Vitamins:", "Fats:", "Sodium:", "Protein:", "Water:", "Allergens:"};
+	    this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: " + "0g", "Vitamins: " + "None", "Fats: " + "0g", "Sodium: " + "0g", "Protein: " + "0g", "Water: " + "0g", "Allergens: " + "None", "See Nutritional details below:"};
     }
 	public void openMoreTab() {
-		for(int i = 0; i <= 7; i++) {
+		for(int i = 0; i <= 8; i++) {
 			labelList.add(new JLabel(labelTexts[i]));	
 		}
 		buttonList.add(new JButton("Request all Recipes"));
@@ -75,14 +75,15 @@ public class MoreTab {
 			buttonList.get(i).setBackground(Color.white);
 			buttonList.get(i).setForeground(Color.black);
 		}
-		l.createLabel(labelList.get(0), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(28, -19, 181, 63).getBounds(), false, null);
-		l.createLabel(labelList.get(1), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 51, 118, 51).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(2), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 73, 177, 51).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(3), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 136, 175, 41).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(4), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 96, 165, 41).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(5), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 116, 165, 41).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(6), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 156, 175, 41).getBounds(), false, PanelList.get(0));
-		l.createLabel(labelList.get(7), createFont("Inter", Font.BOLD, 16), Color.black, new Bounds(10, 176, 175, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(0), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(28, -19, 181, 63).getBounds(), false, null);
+		l.createLabel(labelList.get(1), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 51, 118, 51).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(2), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 73, 177, 51).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(3), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 136, 215, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(4), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 96, 165, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(5), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 116, 165, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(6), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 156, 175, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(7), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 176, 175, 41).getBounds(), false, PanelList.get(0));
+		l.createLabel(labelList.get(8), createFont("Inter", Font.BOLD, 14), Color.black, new Bounds(12, 23, 290, 41).getBounds(), false, PanelList.get(0));
 		
 		productBox.setFocusable(false);
 		productBox.setFont(createFont("Inter", Font.BOLD, 14));
@@ -90,24 +91,36 @@ public class MoreTab {
 		productBox.addActionListener(e -> {
 			  if(e.getSource()==productBox) {
 				  switch(productBox.getSelectedIndex()) {
-				  case 0: displayInfo("Calories: 332", "Vitamin: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); break;
-				  case 1: displayInfo("Calories: 120", "Vitamin: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); break; 
-				  case 2: displayInfo("Calories: 300", "Vitamin: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); break;
-				  case 3: displayInfo("Calories: 250", "Vitamin: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); break;
-				  case 4: displayInfo("Calories: 500", "Vitamin: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); break;
+				  case 0: displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
+				    new Sound().playSound("/sound/click_sound.wav");
+				    break;
+				  case 1: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
+				    new Sound().playSound("/sound/click_sound.wav");
+				    break;
+				  case 2: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
+				    new Sound().playSound("/sound/click_sound.wav");
+				    break; 
+				  case 3: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
+				    new Sound().playSound("/sound/click_sound.wav");  
+				    break;
+				  case 4: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
+				    new Sound().playSound("/sound/click_sound.wav"); 
+				    break;
+				  case 5: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
+				    new Sound().playSound("/sound/click_sound.wav");  
+				    break;
 				  }
-				  new Sound().playSound("/sound/click_sound.wav");
 			  }
 		});
 		buttonList.get(0).addActionListener(e -> {
             if(e.getSource()==buttonList.get(0)) {
-            	rh.writeRecipe("FoodRecipes.txt", "Meats: beef, salt, pepper, garlic. \nBurgers: beef patty, bun, lettuce, tomato. \nIce-Cream: milk, cream, sugar, egg yolks. \nTomato Salad: tomato, olive oil, salt, vinegar, onion. \nChicken Salad: mayonnaise, celery, lettuce. ");
-            	rh.writeAllergen("FoodAllergens.txt", "Chicken Salad: Mayonnaise - can be allergic to some people, possible risk. \nlettuce - Pretty rare allergy. \nBurgers: Tomato - can be allergic to some people, low risk but possible. \nlettuce - Pretty rare allergy. \nMeats: Meat - can be allergic to some people, low risk in Many Regons but possible. \npepper - Pretty rare allergy. \nIce-Cream Milk - very high risk for someone with lactose intolerance. \nEgg yolks - Possible but rare allergy. Tomato: can be allergic to some people, low risk but possible. \nTomato Salad: olivie oil - No allergy but risky for people with high-cholesterol or digestive issues. \nChicken Salad: Mayonnaise - can be allergic to some people, possible risk. \nlettuce - Pretty rare allergy.");
+            	OutputManager.write("FoodRecipes.txt", "Meats: beef, salt, pepper, garlic. \nBurger: beef patty, bun, lettuce, tomato. \nIce-Cream: milk, cream, sugar, egg yolks. \nTomato Salad: tomato, olive oil, salt, vinegar, onion. \nChicken Salad: mayonnaise, celery, lettuce. ");
+            	OutputManager.write("FoodAllergens.txt", "Chicken Salad: Mayonnaise - can be allergic to some people, possible risk. \nlettuce - Pretty rare allergy. \nBurger: Tomato - can be allergic to some people, low risk but possible. \nlettuce - Pretty rare allergy. \nMeats: Meat - can be allergic to some people, low risk in Many Regons but possible. \npepper - Pretty rare allergy. \nIce-Cream Milk - very high risk for someone with lactose intolerance. \nEgg yolks - Possible but rare allergy. Tomato: can be allergic to some people, low risk but possible. \nTomato Salad: olivie oil - No allergy but risky for people with high-cholesterol or digestive issues. \nChicken Salad: Mayonnaise - can be allergic to some people, possible risk. \nlettuce - Pretty rare allergy.");
             	buttonList.get(0).setEnabled(false);
             }
 		});
 		buttonList.get(1).addActionListener(_ -> {
-		    	displayInfo("Calories:", "Possible Vitamins:", "Protein:", "Sodium", "Water Content:", "Fat:", "Allergens:", "Product:");
+		    	displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
 		    	for(JButton b : app.buttonList) {
 		    		  b.setEnabled(false);
 		    		  buttonList.get(0).setEnabled(true); 
@@ -149,8 +162,8 @@ public class MoreTab {
 		return new Font(fontName, type, size);
 	}
 	private void displayInfo(String caloriesInf, String vitaminInf, String proteinInf, String sodiumInf, String waterInf, String fatInf, String allergenInf, String productInf) {
-        text = new String[] {productInf, caloriesInf, vitaminInf, proteinInf, sodiumInf, fatInf, waterInf, allergenInf};
-        for(int i = 0; i < text.length; i++) { 
+       text = new String[] {productInf, caloriesInf, vitaminInf, proteinInf, sodiumInf, fatInf, waterInf, allergenInf};
+       for(int i = 0; i < text.length; i++) { 
             labelList.get(i).setText(text[i]);
        }
     }
