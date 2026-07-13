@@ -4,10 +4,8 @@ import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-
 import main.App;
+import recipeSystem.OutputManager;
 import sound.Sound;
 
 public class Decorator implements java.awt.event.ActionListener {
@@ -39,7 +37,7 @@ public class Decorator implements java.awt.event.ActionListener {
  				   Burgerpick.setEnabled(false);
  				   app.buttonList.get(5).setEnabled(true);
  				   app.buttonList.get(5).addActionListener(this);
- 				   savePaymentDetail(addings);
+ 				   OutputManager.write("payment.txt", String.valueOf(addings));
  				   app.labelList.get(19).setVisible(false);
  		    	   app.buttonList.get(5).setVisible(true);
  			   }
@@ -76,7 +74,7 @@ public class Decorator implements java.awt.event.ActionListener {
     					addings += 90;
     					app.labelList.get(12).setText("" + addings + " $");
     					new Sound().playSound("/sound/click_sound.wav");
-    					savePaymentDetail(addings);
+    					OutputManager.write("payment.txt", String.valueOf(addings));
     				}
     			}        	
     		});
@@ -147,12 +145,4 @@ public class Decorator implements java.awt.event.ActionListener {
                 }
             }
       }
-    private void savePaymentDetail(int sum) {
-    	try {
-			System.setOut(new PrintStream("payment.txt"));
-			System.out.println(String.valueOf(sum));
-		}catch(FileNotFoundException e) {
-			System.out.println("Can't save details: " + e.getMessage());
-		}
-    }
 }
