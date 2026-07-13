@@ -19,14 +19,14 @@ public class App {
     private Panel panel = new Panel();
     private Decorator dec = new Decorator(this);
     private RecipeHandler rh = new RecipeHandler(this);
-    public MoreTab mt = new MoreTab(this, rh);
+    public MoreTab mt = new MoreTab(this);
     private Button button = new Button();
     public List<JLabel> labelList = new ArrayList<>();
     public List<JButton> buttonList = new ArrayList<>();
     public List<JPanel> panelList = new ArrayList<>();
     private String[] labelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "0", "Total Cost:", "0" + "$", "", "", "", "", "", "", "Please Select Any Product."};
     public static String[] buttonTexts = {"Burger", "Steak", "Ice-Cream", "Chicken Salad", "Tomato Salad", "Next", "More"};
-    public static String mode = "Dark";
+    public static String mode = "Light";
    
     public App() { 
 		 for(String labelText : labelTexts) {
