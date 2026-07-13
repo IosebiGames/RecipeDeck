@@ -7,7 +7,7 @@ import main.App;
 public class RecipeHandler {
     private App app;
     private int counter = 0, allergenAmount = 0;
-    public Timer timer;
+    public static Timer timer;
     
     public RecipeHandler(App app) {
         this.app = app;
