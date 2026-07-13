@@ -16,7 +16,6 @@ public class MoreTab {
 	private JFrame window;
     private App app;
     private Panel p;
-    private RecipeHandler rh;
     private Labels l;
 	private Button b;
 	private Timer resetTimer;
@@ -28,10 +27,9 @@ public class MoreTab {
     private final String[] products = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
     private JComboBox<?> productBox = new JComboBox<>(products);
     
-   public MoreTab(App app, RecipeHandler rh) {
+   public MoreTab(App app) {
 		this.app = app;
 		this.p = new Panel();
-		this.rh = rh;
 		this.l = new Labels();
 		this.b = new Button();
 	    this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: " + "0g", "Vitamins: " + "None", "Fats: " + "0g", "Sodium: " + "0g", "Protein: " + "0g", "Water: " + "0g", "Allergens: " + "None", "See Nutritional details below:"};
@@ -124,7 +122,7 @@ public class MoreTab {
 		    	for(JButton b : app.buttonList) {
 		    		  b.setEnabled(false);
 		    		  buttonList.get(0).setEnabled(true); 
-		    		  rh.timer.restart();
+		    		  RecipeHandler.timer.restart();
 		    		  window.dispose();
 		    	}
 		});
