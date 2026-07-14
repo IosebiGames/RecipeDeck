@@ -123,6 +123,7 @@ public class MoreTab {
 		    	displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
 		    	for(JButton b : app.buttonList) {
 		    		  b.setEnabled(false);
+		    		  app.buttonList.get(5).setEnabled(true);
 		    		  buttonList.get(1).setEnabled(true);
 		    		  RecipeHandler.timer.restart();
 		    		  window.dispose();
