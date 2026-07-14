@@ -37,7 +37,7 @@ public class Decorator implements java.awt.event.ActionListener {
  				   Burgerpick.setEnabled(false);
  				   app.buttonList.get(5).setEnabled(true);
  				   app.buttonList.get(5).addActionListener(this);
- 				   OutputManager.write("payment.txt", String.valueOf(addings));
+ 				   OutputManager.write("src/output/payment.txt", String.valueOf(addings));
  				   app.labelList.get(19).setVisible(false);
  		    	   app.buttonList.get(5).setVisible(true);
  			   }
@@ -74,7 +74,7 @@ public class Decorator implements java.awt.event.ActionListener {
     					addings += 90;
     					app.labelList.get(12).setText("" + addings + " $");
     					new Sound().playSound("/sound/click_sound.wav");
-    					OutputManager.write("payment.txt", String.valueOf(addings));
+    					OutputManager.write("src/output/payment.txt", String.valueOf(addings));
     				}
     			}        	
     		});
