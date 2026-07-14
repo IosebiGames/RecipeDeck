@@ -3,6 +3,7 @@ package recipeSystem;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.ArrayList;
 import main.App;
 import Tools.*;
@@ -68,6 +69,7 @@ public class MoreTab {
 		p.createPanel(PanelList.get(0), new Bounds(29, 92, 239, 311).getBounds(), false);
 		b.createButton(buttonList.get(0), new Bounds(10, 216, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black, false);
 		b.createButton(buttonList.get(1), new Bounds(10, 260, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black, false);
+		checkData("FoodAllergens.txt", "FoodRecipes.txt");
 		
 		for(int i = 0; i <= 1; i++) {
 			buttonList.get(i).setBackground(Color.white);
@@ -121,7 +123,7 @@ public class MoreTab {
 		    	displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
 		    	for(JButton b : app.buttonList) {
 		    		  b.setEnabled(false);
-		    		  buttonList.get(0).setEnabled(true); 
+		    		  buttonList.get(1).setEnabled(true);
 		    		  RecipeHandler.timer.restart();
 		    		  window.dispose();
 		    	}
@@ -165,4 +167,13 @@ public class MoreTab {
             labelList.get(i).setText(text[i]);
        }
     }
+	private void checkData(String allergenFile, String RecipeFile) {
+		if(new File(allergenFile).exists() && new File(RecipeFile).exists()) {
+			buttonList.get(0).setEnabled(false);
+		    buttonList.get(0).setToolTipText("Data is already requested, please move file somewhere else and try again.");
+		}else {
+			buttonList.get(0).setEnabled(true);
+			return;
+		}
+	}
 }
