@@ -43,6 +43,7 @@ public class RecipeHandler {
             app.mt.openMoreTab();
             app.buttonList.get(6).setVisible(false);
             for (JButton b : app.buttonList) b.setEnabled(false);
+            app.buttonList.get(5).setEnabled(true);
         });
         app.buttonList.get(0).addActionListener(_ -> {
             if (!timer.isRunning()) {
