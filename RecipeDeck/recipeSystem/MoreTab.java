@@ -27,13 +27,15 @@ public class MoreTab {
     public ArrayList<JPanel> PanelList = new ArrayList<>();
     private final String[] products = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
     private JComboBox<?> productBox = new JComboBox<>(products);
+    private Sound s;
     
-   public MoreTab(App app) {
+    public MoreTab(App app) {
 		this.app = app;
 		this.p = new Panel();
 		this.l = new Labels();
 		this.b = new Button();
 	    this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: " + "0g", "Vitamins: " + "None", "Fats: " + "0g", "Sodium: " + "0g", "Protein: " + "0g", "Water: " + "0g", "Allergens: " + "None", "See Nutritional details below:"};
+        this.s = new Sound();
     }
 	public void openMoreTab() {
 		for(int i = 0; i <= 8; i++) {
@@ -92,22 +94,22 @@ public class MoreTab {
 			  if(e.getSource()==productBox) {
 				  switch(productBox.getSelectedIndex()) {
 				  case 0: displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
-				    new Sound().playSound("/sound/click_sound.wav");
+				    s.playSound("/sound/click_sound.wav");
 				    break;
 				  case 1: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
-				    new Sound().playSound("/sound/click_sound.wav");
+				    s.playSound("/sound/click_sound.wav");
 				    break;
 				  case 2: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
-				    new Sound().playSound("/sound/click_sound.wav");
+				    s.playSound("/sound/click_sound.wav");
 				    break; 
 				  case 3: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
-				    new Sound().playSound("/sound/click_sound.wav");  
+				    s.playSound("/sound/click_sound.wav");
 				    break;
 				  case 4: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
-				    new Sound().playSound("/sound/click_sound.wav"); 
+				    s.playSound("/sound/click_sound.wav");
 				    break;
 				  case 5: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
-				    new Sound().playSound("/sound/click_sound.wav");  
+				    s.playSound("/sound/click_sound.wav");
 				    break;
 				  }
 			  }
