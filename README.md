@@ -17,7 +17,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
      a few days later after conversation started (Somewhere Between October 8-11 2025) Development started and App was fully complete 10 days earlier (on October 20 2025).
    Person was pretty respectful and also greatful but kind of busy since they replied once every 2/4 days. I used to send them progress when working so they replied when they could.
    they have answered on October 27 and said that will talk tomorrow, but when the deadline came on October 30, they haven't answered anything.
-   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 240+ days.<br>
+   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 260+ days.<br>
      Timelines:<br>
        - October 8 2025 (Beginning of the conversation)<br>
        - October 10 2025 (Very first progress)<br>
@@ -29,7 +29,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
        
   # How was the app made:
    RecipeDeck is made in Java Swing (in-built Framework in JDK for GUI development) which is often being paired with Java AWT (Abstract Window Toolkit), Swing is part of Java Fundation Classes (JFC) and is responsible for GUI Window along with components that you see on screen. But Fonts, Colors and other additions come from AWT.
-   FlatLaf is small key library here which Gives this Application an Modern Look & Feel. Click sounds are being managed by Java Sound API (Known as Java Sound).
+   FlatLaf is small key library here which Gives this Application an Modern Look & Feel. Click sounds are being managed by TinySound (small library for playing the sound).
   ### How it ended up:
    the app now has became mine, I still maintain and improve it gradually. I didn't share Source code, jar file, Project files with them at all so they've got nothing.
    In fact, RecipeDeck has undergone BUNCH of changes by today.
