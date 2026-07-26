@@ -6,6 +6,11 @@ import java.awt.event.*;
 import sound.Sound;
 
 public class Button {
+	private Sound s;
+	
+	public Button() {
+		s = new Sound();
+	}
 	public void createButton(JButton b, Rectangle rect, boolean focusableStatus, JPanel panel, boolean visible, Color bc, Color fc, boolean soundless) {
         b.setFocusable(focusableStatus);
         b.setBounds(rect.getBounds());
@@ -28,7 +33,7 @@ public class Button {
         }else {
         	b.addActionListener(e -> {
         		if(e.getSource() == b) {
-        			new Sound().playSound("/sound/click_sound.wav");
+        			s.playSound("/sound/click_sound.wav");
         		}
         	});
         }
