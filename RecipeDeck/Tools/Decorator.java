@@ -18,6 +18,7 @@ public class Decorator implements java.awt.event.ActionListener {
     private int addings = 0;
     private ResourceLoader rl;
     private ActionListener burgerAL, burgerAL2;
+    private Sound s;
     
     public Decorator(App app) {
         this.app = app;
@@ -26,13 +27,14 @@ public class Decorator implements java.awt.event.ActionListener {
     	this.Drinkpick = new JMenuItem("Select (90$)");
     	this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
+        this.s = new Sound();
     }
     public void decorate() {
     	     this.burgerAL = e -> {
  			   if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings + " $");
- 				   new Sound().playSound("/sound/click_sound.wav");
+ 				   s.playSound("/sound/click_sound.wav");
  	 			   Burgerpick.setText("Can't Select twice or more, product is too expensive.");
  				   Burgerpick.setEnabled(false);
  				   app.buttonList.get(5).setEnabled(true);
@@ -46,7 +48,7 @@ public class Decorator implements java.awt.event.ActionListener {
  		       if(e.getSource()==Burgerpick) {
  				   addings += 60;
  				   app.labelList.get(12).setText("" + addings + " $");
- 				   new Sound().playSound("/sound/click_sound.wav");
+ 				   s.playSound("/sound/click_sound.wav");
  				   app.labelList.get(19).setVisible(false);
  		    	   app.buttonList.get(5).setVisible(true);
  		       }
@@ -73,7 +75,7 @@ public class Decorator implements java.awt.event.ActionListener {
     				if(e.getSource()==Drinkpick) {
     					addings += 90;
     					app.labelList.get(12).setText("" + addings + " $");
-    					new Sound().playSound("/sound/click_sound.wav");
+    					s.playSound("/sound/click_sound.wav");
     					OutputManager.write("src/output/payment.txt", String.valueOf(addings));
     				}
     			}        	
