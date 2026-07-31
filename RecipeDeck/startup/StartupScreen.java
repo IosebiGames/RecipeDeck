@@ -2,11 +2,12 @@ package startup;
 
 import javax.swing.*;
 import java.awt.*;
-import Tools.Bounds;
-import Tools.Fonts;
-import Tools.ResourceLoader;
-import Tools.Screen;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import Tools.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import main.App;
@@ -18,6 +19,8 @@ public class StartupScreen {
 	public Timer timer;
 	private boolean startup_permission = true;
 	public static boolean tracker_permission = false;
+	public static String currentLanguage = getLanguage();
+	private static String content;
 	
 	public StartupScreen() {
 	   window = new JFrame("RecipeDeck");
@@ -28,30 +31,55 @@ public class StartupScreen {
        window.setLocationRelativeTo(null);
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
-       bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
-	   window.setVisible(true);
+       
+       if(getLanguage().equals("English")) {
+    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+       }else if(getLanguage().equals("Armenian")) {
+    	   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+       }
+       window.setVisible(true);
 	   
-       timer = new Timer(100, _ -> {
-    	   procentage++;
-    	   bar.setValue(procentage);
-    	   check(startup_permission);
-       });
+	   timer = new Timer(100, _ -> {
+		  procentage++;
+		  bar.setValue(procentage);
+		  check(startup_permission);
+	   });
 	}
 	private void check(boolean p) {
-		if(p) {
-			if(procentage == 81) bar.setString("Almost there....");
-			if(procentage == 91) bar.setString("Finishing up....");
-			if(procentage == 97) bar.setString("Done....");
-			if(procentage == 100) {
-				procentage = 100; 
-				window.dispose();
-				new App();
-				Screen.window.setVisible(true);   
-			}
-		}else {
-			if(procentage == 81) bar.setString("Shutting down...");
-			if(procentage == 91) System.exit(0);
-		}
+		if(getLanguage().equals("English")) {
+		    	if(p) {
+		    		if(procentage == 81) bar.setString("Almost there....");
+		    		if(procentage == 91) bar.setString("Finishing up....");
+		    		if(procentage == 97) bar.setString("Done....");
+		    		if(procentage == 100) {
+		    			procentage = 100; 
+		    			window.dispose();
+		    			Language.translate("English");
+		    			new App();
+		    			Screen.window.setVisible(true);   
+		    		}
+		    	}else {
+		    		if(procentage == 81) bar.setString("Shutting down...");
+		    		if(procentage == 91) System.exit(0);
+		    	}
+	   }
+	   if(getLanguage().equals("Armenian")) {
+	    	if(p) {
+	    		if(procentage == 81) bar.setString("Գրեթե այնտեղ....");
+	    		if(procentage == 91) bar.setString("Ավարտվում է....");
+	    		if(procentage == 97) bar.setString("Կատարված է...");
+	    		if(procentage == 100) {
+	    			procentage = 100; 
+	    			window.dispose();
+	    			Language.translate("Armenian");
+	    			new App();
+	    			Screen.window.setVisible(true);   
+	    		}
+	    	}else {
+	    		if(procentage == 81) bar.setString("Անջատում...");
+	    		if(procentage == 91) System.exit(0);
+	    	}
+	    }
 	}
 	private JProgressBar createBar(String text, int value, boolean visible, Rectangle rect, Color bc, Color fg, JFrame window, boolean focusable, boolean extrab, Font f) {
 		 bar = new JProgressBar();
@@ -94,5 +122,26 @@ public class StartupScreen {
 			    FlatDarkLaf.setup();
 		        new App();
 		  }
+	 }
+	 private static String read() {
+		 try (BufferedReader br = Files.newBufferedReader(Path.of("src/output/payment.txt"))) {
+			    content = br.readAllAsString();
+			    if(content.contains("English")) {
+			    	currentLanguage = "English";
+			    }else if(content.contains("Armenian")) {
+			    	currentLanguage = "Armenian";
+			    }
+		 }catch(IOException e) {
+			 System.out.println("Entire reading logic failed.");
+		 }
+		 return currentLanguage;
+	 }
+	 private static String getLanguage() {
+	 	   if(new File("src/output/payment.txt").exists()) {
+			   currentLanguage = read();
+		   }else {
+			   currentLanguage = "English";
+		 }
+	 	 return currentLanguage;
 	 }
 }
