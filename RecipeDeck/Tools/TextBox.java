@@ -8,7 +8,6 @@ import main.App;
 
 public class TextBox {
 	private JTextPane textPane;
-    private App app;
     private int lastDate;
     private int latestDate;
     private int lastMonth;
@@ -17,10 +16,9 @@ public class TextBox {
     private String daysAgo, monthsAgo;
     private LocalDate date;
     
-    public TextBox(App app) {
-		this.app = app;
+    public TextBox() {
 		this.date = LocalDate.now();
-	    this.lastDate = 26;
+	    this.lastDate = 31;
 	    this.lastMonth = 7;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
@@ -38,19 +36,29 @@ public class TextBox {
 		}else if(App.mode.equals("Light")) {
 			textPane.setForeground(Color.black);
 		}
-		app.panelList.get(4).add(textPane);
+		App.panelList.get(4).add(textPane);
 		if(StartupScreen.tracker_permission) {
 			textPane.setContentType("text/html");	
 			textPane.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 			setTracker(lastDate, lastMonth, latestDate, latestMonth, "Feature was disabled by Developer since April of 2026, Functionality can be limited.");
 		}else {
 			textPane.setContentType("text/html");	
-			setInformation("<html><pre style='font-family:sans-serif; font-size:12px;'>"
-				 + "                        What's New: " + "<br>"
-				 + "                   - Unselected added <br>"
-				 + "                   - Fixed empty nutritional details                        <br>"
-				 + "   Released: 26.07.2026 " + "<font color='red'>(Tracker Disabled)</font>"
-				 + "</pre></html>");
+			if(Language.currentLanguage.equals("Armenian")) {
+				setInformation("<html><pre style='font-family:sans-serif; font-size:10px;'>"
+						 + "                        Ինչ է նորը (English): " + "<br>"
+						 + "                   - Armenian added <br>"
+						 + "                   - Removed dependencies                      <br>"
+						 + "   Թողարկված է: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Հետևորդը անջատված է)</font>"
+						 + "</pre></html>");
+						
+			}else {
+				setInformation("<html><pre style='font-family:sans-serif; font-size:12px;'>"
+						+ "                        What's New: " + "<br>"
+						+ "                   - Armenian added <br>"
+						+ "                   - Removed dependencies                      <br>"
+						+ "   Released: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Tracker Disabled)</font>"
+						+ "</pre></html>");
+			}
 		}
 	}
 	private void setInformation(final String info) {
@@ -60,13 +68,13 @@ public class TextBox {
 		 textPane.setToolTipText(warningTip);
 		 if(latestMonth > lastMonth && latestDate == lastDate) {
 			 daysAgo = " (" + String.valueOf(latestMonth - lastMonth) + "mo)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 26.07.2026" + daysAgo);
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 27.07.2026" + daysAgo);
 		 }else if(latestDate < lastDate) {
 			 monthsAgo = " (" + (daysPerMonth - (lastDate -= latestDate)) + "d)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 26.07.2026" + monthsAgo);
+			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 27.07.2026" + monthsAgo);
 		 }else if(lastDate == latestDate && lastMonth == latestMonth) {
 			 daysAgo = "(<font color='green'><b>Today</b></font>)";
-			 setInformation("<html><pre style='font-family:sans-serif; font-size:11px;'>" + "                        What's New: <br>"  + "                          - Background Bug Fixes <br>"  + "                          <br>" + "   Released: 26.07.2026 " + daysAgo + "</pre></html>" + daysAgo);
+			 setInformation("<html><pre style='font-family:sans-serif; font-size:11px;'>" + "                        What's New: <br>"  + "                          - Background Bug Fixes <br>"  + "                          <br>" + "   Released: 27.07.2026 " + daysAgo + "</pre></html>" + daysAgo);
 		 }else if(lastDate == 0 && lastMonth == 0) {
 			 textPane.setContentType("text/plain");
 			 textPane.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 15));
