@@ -4,7 +4,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>Latest version is RecipeDeck v1.5!</b><br/>
                   <b>Consider choosing latest version for best user experience.</b><br/>
                   <b>Go to Releases -> Choose RecipeDeck v1.5 -> Download jar</b><br/>
-                  <b>Super thanks to Heghine for Armenian translation: https://github.com/ZeroaNinea</b>
+                  <b>**Super Thanks to Heghine for Armenian translation**: https://github.com/ZeroaNinea</b>
 </p>
 
 <img width="812" height="495" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_dark.png?raw=true" />
