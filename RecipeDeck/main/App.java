@@ -61,14 +61,14 @@ public class App {
 			if(Language.currentLanguage.equals("Armenian")) {
 				lb.createLabel(labelList.get(6), null, null, new Bounds(140, 153, 256, 18).getBounds(), false, panelList.get(1));
 			}else {
-				lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 256, 18).getBounds(), false, panelList.get(1));
+				lb.createLabel(labelList.get(6), null, null, new Bounds(112, 153, 256, 18).getBounds(), false, panelList.get(1));
 			}
 			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 256, 23).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 256, 23).getBounds(), false, panelList.get(1));
 		}else {
 		    lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(5), null, null, new Bounds(104, 124, 176, 18).getBounds(), false, panelList.get(1));
-			lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 176, 18).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(6), null, null, new Bounds(112, 153, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 166, 23).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 166, 23).getBounds(), false, panelList.get(1));
 		}
