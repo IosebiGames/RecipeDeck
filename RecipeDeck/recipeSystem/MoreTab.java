@@ -129,8 +129,15 @@ public class MoreTab {
 		l.createLabel(labelList.get(7), createFont("Inter", Font.BOLD, 15), Color.black, new Bounds(10, 176, 275, 41).getBounds(), false, PanelList.get(0));
 		l.createLabel(labelList.get(8), createFont("Inter", Font.BOLD, 14), Color.black, new Bounds(12, 23, 380, 41).getBounds(), false, PanelList.get(0));
 		
+		productBox.putClientProperty("JComponent.roundRect", true);
+        if(App.mode.equals("Dark")) {
+        	productBox.setForeground(Color.white);
+        }else if(App.mode.equals("Light")) {
+        	productBox.setForeground(Color.black);
+        }
 		productBox.setFocusable(false);
 		productBox.setFont(createFont("Inter", Font.BOLD, 14));
+        
 		if(Language.currentLanguage.equals("Armenian")) {
 			productBox.setBounds(new Bounds(123, 31, 170, 41).getBounds());
 		}else {
@@ -138,50 +145,13 @@ public class MoreTab {
 		}
 		productBox.addActionListener(e -> {
 			if(e.getSource()==productBox) {
-				if(Language.currentLanguage.equals("Armenian")) {
-					 switch(productBox.getSelectedIndex()) {
-					  case 0: displayInfo("Կալորիականություններ: 0g", "Վիտամիններ: Ոչ մեկը", "Սպիտակուցներ: 0g", "Նատրիում: 0g", "Ջուր: 0g", "Ճարպեր: 0g", "Ալերգեններ՝: Ոչ մեկը", "Ապրանք: " + "չընտրված");
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 1: displayInfo("Կալորիականություններ: 332g", "Վիտամիններ: B12, B6, Iron", "Սպիտակուցներ: 26g", "Ջուր: 60mg", "Նատրիում: 50g", "Ճարպեր: 17g (Satured 7g)", "Ալերգեններ: 1", "Ապրանք՝: " + "Միս"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 2: displayInfo("Կալորիականություններ: 120g", "Վիտամիններ: A, C, K, Folate", "Սպիտակուցներ: 3g", "Նատրիում: 1.5g", "Ջուր: 150g", "Ճարպեր: 4g", "Ալերգեններ: 1", "Ապրանք: " + "Լոլիկի աղցան"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break; 
-					  case 3: displayInfo("Կալորիականություններ: 300g", "Վիտամիններ: C, A, K, Folate", "Սպիտակուցներ: 30mg", "Նատրիում: 350mg", "Ջուր: 160g", "Ճարպեր: 4g", "Ալերգեններ: 1", "Ապրանք: " + "Հավի աղցան"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 4: displayInfo("Կալորիականություններ: 250g", "Վիտամիններ: A, Calcium", "Սպիտակուցներ: 6g", "Նատրիում: 350mg", "Ջուր: 0.7g", "Ճարպեր: 14g", "Ալերգեններ: 1", "Ապրանք՝: " + "Պաղպաղակ"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 5: displayInfo("Կալորիականություններ: 500g", "Վիտամիններ: C, K", "Սպիտակուցներ: 15g", "Նատրիում: 400mg", "Ջուր: 90g", "Ճարպեր: 25g", "Ալերգեններ: 2", "Ապրանք՝: " + "Բուրգեր"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-				   }
-				}else if(Language.currentLanguage.equals("English")) {
-					 switch(productBox.getSelectedIndex()) {
-					  case 0: displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 1: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 2: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break; 
-					  case 3: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 4: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-					  case 5: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
-					  s.playSound("/sound/click_sound.wav");
-					  break;
-				   }
-			     }
-			  }
+				if(productBox.getItemAt(0).equals("Unselected")) {
+					productBox.removeItemAt(0);
+					setSelection();
+				}else {
+			        setSelection();
+				}
+			}
 		});
 		buttonList.get(0).addActionListener(e -> {
             if(e.getSource()==buttonList.get(0)) {
@@ -276,6 +246,45 @@ public class MoreTab {
 		}else {
 			buttonList.get(0).setEnabled(true);
 			return;
+		}
+	}
+	private void setSelection() {
+		if(Language.currentLanguage.equals("Armenian")) {
+			  switch(productBox.getSelectedIndex()) {
+			  case 0: displayInfo("Կալորիականություններ: 332g", "Վիտամիններ: B12, B6, Iron", "Սպիտակուցներ: 26g", "Ջուր: 60mg", "Նատրիում: 50g", "Ճարպեր: 17g (Satured 7g)", "Ալերգեններ: 1", "Ապրանք՝: " + "Միս"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 1: displayInfo("Կալորիականություններ: 120g", "Վիտամիններ: A, C, K, Folate", "Սպիտակուցներ: 3g", "Նատրիում: 1.5g", "Ջուր: 150g", "Ճարպեր: 4g", "Ալերգեններ: 1", "Ապրանք: " + "Լոլիկի աղցան"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break; 
+			  case 2: displayInfo("Կալորիականություններ: 300g", "Վիտամիններ: C, A, K, Folate", "Սպիտակուցներ: 30mg", "Նատրիում: 350mg", "Ջուր: 160g", "Ճարպեր: 4g", "Ալերգեններ: 1", "Ապրանք: " + "Հավի աղցան"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 3: displayInfo("Կալորիականություններ: 250g", "Վիտամիններ: A, Calcium", "Սպիտակուցներ: 6g", "Նատրիում: 350mg", "Ջուր: 0.7g", "Ճարպեր: 14g", "Ալերգեններ: 1", "Ապրանք՝: " + "Պաղպաղակ"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 4: displayInfo("Կալորիականություններ: 500g", "Վիտամիններ: C, K", "Սպիտակուցներ: 15g", "Նատրիում: 400mg", "Ջուր: 90g", "Ճարպեր: 25g", "Ալերգեններ: 2", "Ապրանք՝: " + "Բուրգեր"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+		  }
+		}else if(Language.currentLanguage.equals("English")) {
+			  switch(productBox.getSelectedIndex()) {
+			  case 0: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 1: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break; 
+			  case 2: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 3: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			  case 4: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
+			  s.playSound("/sound/click_sound.wav");
+			  break;
+			}
 		}
 	}
 }
