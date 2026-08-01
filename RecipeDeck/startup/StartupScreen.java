@@ -40,9 +40,9 @@ public class StartupScreen {
     	   }
        }else if(getLanguage().equals("Armenian")) {
     	   if(App.mode.equals("Light")) {
-    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Verdana", Font.BOLD, 15));
     	   }else if(App.mode.equals("Dark")) {
-    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
+    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Verdana", Font.BOLD, 15));
     	   }
        }
        window.setVisible(true);
@@ -98,7 +98,7 @@ public class StartupScreen {
 		 bar.setBackground(bc);
 		 bar.setForeground(fg);
 		 bar.setStringPainted(extrab);
-		 Fonts.AllowExternalFont("src/fonts/Inter_bold.ttf");
+		 Fonts.AllowExternalFont("/fonts/Inter_bold.ttf");
 	     bar.setFont(f);
 		 window.add(bar);
 		 return bar;
