@@ -33,9 +33,17 @@ public class StartupScreen {
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
        
        if(getLanguage().equals("English")) {
-    	   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   if(App.mode.equals("Light")) {
+    		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   }else if(App.mode.equals("Dark")) {
+    		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   }
        }else if(getLanguage().equals("Armenian")) {
-    	   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   if(App.mode.equals("Light")) {
+    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   }else if(App.mode.equals("Dark")) {
+    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
+    	   }
        }
        window.setVisible(true);
 	   
