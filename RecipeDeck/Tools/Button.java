@@ -26,8 +26,6 @@ public class Button {
         for (ActionListener al : b.getActionListeners()) {
             b.removeActionListener(al);
         }
-        panel.add(b);
-        
         if(soundless == true) {
         	return;
         }else {
@@ -37,5 +35,6 @@ public class Button {
         		}
         	});
         }
+        panel.add(b);
 	}
 }
