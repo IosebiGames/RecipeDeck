@@ -18,8 +18,8 @@ public class TextBox {
     
     public TextBox() {
 		this.date = LocalDate.now();
-	    this.lastDate = 31;
-	    this.lastMonth = 7;
+	    this.lastDate = 1;
+	    this.lastMonth = 8;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
 	    this.daysPerMonth = 31;
@@ -47,7 +47,7 @@ public class TextBox {
 				setInformation("<html><pre style='font-family:sans-serif; font-size:10px;'>"
 						 + "                        Ինչ է նորը (English): " + "<br>"
 						 + "                   - Armenian added <br>"
-						 + "                   - Removed dependencies                      <br>"
+						 + "                   - Improved Unselected                  <br>"
 						 + "   Թողարկված է: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Հետևորդը անջատված է)</font>"
 						 + "</pre></html>");
 						
@@ -55,7 +55,7 @@ public class TextBox {
 				setInformation("<html><pre style='font-family:sans-serif; font-size:12px;'>"
 						+ "                        What's New: " + "<br>"
 						+ "                   - Armenian added <br>"
-						+ "                   - Removed dependencies                      <br>"
+						+ "                   - Improved Unselected                   <br>"
 						+ "   Released: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Tracker Disabled)</font>"
 						+ "</pre></html>");
 			}
