@@ -36,7 +36,7 @@ public class App {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
 		if(Language.currentLanguage.equals("Armenian")) {
-			lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(225, 178, 89), new Bounds(10, 4, 318, 54).getBounds(), false, panelList.get(0));
+			lb.createLabel(labelList.get(0), new Font("Verdana", Font.BOLD, 27), new Color(225, 178, 89), new Bounds(10, 4, 318, 54).getBounds(), false, panelList.get(0));
 		}else {
 			lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(225, 178, 89), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
 		}
@@ -50,9 +50,9 @@ public class App {
 			}
 		}else {
 			if(mode.equals("Dark")) {
-				lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 22), new Color(20, 238, 206), new Bounds(30, 11, 291, 54).getBounds(), false, panelList.get(1));
+				lb.createLabel(labelList.get(3), new Font("Verdana", Font.BOLD, 22), new Color(20, 238, 206), new Bounds(30, 11, 291, 54).getBounds(), false, panelList.get(1));
 			}else if(mode.equals("Light")) {
-				lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(9, 121, 105), new Bounds(30, 11, 291, 54).getBounds(), false, panelList.get(1));
+				lb.createLabel(labelList.get(3), new Font("Verdna", Font.BOLD, 31), new Color(9, 121, 105), new Bounds(30, 11, 291, 54).getBounds(), false, panelList.get(1));
 			}
 		}
 		if(Language.currentLanguage.equals("Armenian")) {
@@ -66,17 +66,21 @@ public class App {
 			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 256, 23).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 256, 23).getBounds(), false, panelList.get(1));
 		}else {
-		    lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 176, 18).getBounds(), false, panelList.get(1));
+		    lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 206, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(5), null, null, new Bounds(104, 124, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(6), null, null, new Bounds(112, 153, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 166, 23).getBounds(), false, panelList.get(1));
-			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 166, 23).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 206, 23).getBounds(), false, panelList.get(1));
 		}
-		lb.createLabel(labelList.get(9), new Font("Inter", Font.BOLD, 31), Color.red, new Bounds(93, 11, 210, 54).getBounds(), false, panelList.get(2));
+		if(Language.currentLanguage.equals("English")) {
+			lb.createLabel(labelList.get(9), new Font("Inter", Font.BOLD, 31), Color.red, new Bounds(93, 11, 210, 54).getBounds(), false, panelList.get(2));
+		}else {
+			lb.createLabel(labelList.get(9), new Font("Verdana", Font.BOLD, 30), Color.red, new Bounds(93, 11, 220, 54).getBounds(), false, panelList.get(2));
+		}
 		lb.createLabel(labelList.get(10), null, null, new Bounds(93, 63, 145, 16).getBounds(), false, panelList.get(2));
 		
 		if(Language.currentLanguage.equals("Armenian")) {
-			lb.createLabel(labelList.get(11), new Font("Inter", Font.BOLD, 27), new Color(255, 165, 0), new Bounds(10, 5, 318, 40).getBounds(), false, panelList.get(3));
+			lb.createLabel(labelList.get(11), new Font("Verdana", Font.BOLD, 26), new Color(255, 165, 0), new Bounds(10, 5, 324, 40).getBounds(), false, panelList.get(3));
 		}else {
 			lb.createLabel(labelList.get(11), new Font("Inter", Font.BOLD, 31), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
 		}
