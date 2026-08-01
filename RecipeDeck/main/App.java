@@ -44,7 +44,7 @@ public class App {
 		lb.createLabel(labelList.get(2), null, null, new Bounds(10, 57, 151, 144).getBounds(), false, panelList.get(0));
 		if(Language.currentLanguage.equals("English")) {
 			if(mode.equals("Dark")) {
-				lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 22), new Color(20, 238, 206), new Bounds(100, 11, 291, 54).getBounds(), false, panelList.get(1));
+				lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(20, 238, 206), new Bounds(100, 11, 291, 54).getBounds(), false, panelList.get(1));
 			}else if(mode.equals("Light")) {
 				lb.createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(9, 121, 105), new Bounds(100, 11, 291, 54).getBounds(), false, panelList.get(1));
 			}
@@ -63,13 +63,13 @@ public class App {
 			}else {
 				lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 256, 18).getBounds(), false, panelList.get(1));
 			}
-			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 183, 256, 23).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 256, 23).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 256, 23).getBounds(), false, panelList.get(1));
 		}else {
 		    lb.createLabel(labelList.get(4), null, null, new Bounds(104, 94, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(5), null, null, new Bounds(104, 124, 176, 18).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(6), null, null, new Bounds(109, 153, 176, 18).getBounds(), false, panelList.get(1));
-			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 183, 166, 23).getBounds(), false, panelList.get(1));
+			lb.createLabel(labelList.get(7), null, null,  new Bounds(140, 181, 166, 23).getBounds(), false, panelList.get(1));
 			lb.createLabel(labelList.get(8), null, null, new Bounds(140, 213, 166, 23).getBounds(), false, panelList.get(1));
 		}
 		lb.createLabel(labelList.get(9), new Font("Inter", Font.BOLD, 31), Color.red, new Bounds(93, 11, 210, 54).getBounds(), false, panelList.get(2));
