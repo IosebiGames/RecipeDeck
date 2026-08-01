@@ -11,7 +11,7 @@ public class Labels {
 		label.setBounds(rect.getBounds());
 		label.setFocusable(focusableStatus);
 		label.setForeground(foregroundColor);
-		Fonts.AllowExternalFont("src/fonts/Inter_bold.ttf");
+		Fonts.AllowExternalFont("/fonts/Inter_bold.ttf");
 		label.setFont(font);
 		Screen.window.add(label);
 		if (partPanel != null) {
