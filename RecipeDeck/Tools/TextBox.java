@@ -44,7 +44,7 @@ public class TextBox {
 		}else {
 			textPane.setContentType("text/html");	
 			if(Language.currentLanguage.equals("Armenian")) {
-				setInformation("<html><pre style='font-family:sans-serif; font-size:10px;'>"
+				setInformation("<html><pre style='font-family:Verdana; font-size:10px;'>"
 						 + "                        Ինչ է նորը (English): " + "<br>"
 						 + "                   - Armenian added <br>"
 						 + "                   - Improved Unselected                  <br>"
@@ -52,7 +52,7 @@ public class TextBox {
 						 + "</pre></html>");
 						
 			}else {
-				setInformation("<html><pre style='font-family:sans-serif; font-size:12px;'>"
+				setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
 						+ "                        What's New: " + "<br>"
 						+ "                   - Armenian added <br>"
 						+ "                   - Improved Unselected                   <br>"
