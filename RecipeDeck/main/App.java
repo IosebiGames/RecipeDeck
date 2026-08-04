@@ -84,7 +84,7 @@ public class App {
 		}else {
 			lb.createLabel(labelList.get(11), new Font("Inter", Font.BOLD, 31), new Color(255, 165, 0), new Bounds(86, 5, 171, 40).getBounds(), false, panelList.get(3));
 		}
-		lb.createLabel(labelList.get(12), new Font("Inter", Font.BOLD, 18), new Color(255, 165, 0), new Bounds(96, 44, 136, 14).getBounds(), false, panelList.get(3));
+		lb.createLabel(labelList.get(12), new Font("Inter", Font.BOLD, 18), new Color(255, 165, 0), new Bounds(96, 44, 136, 17).getBounds(), false, panelList.get(3));
 		
 		if(Language.currentLanguage.equals("Armenian")) {
 			if(mode.equals("Light")) {
