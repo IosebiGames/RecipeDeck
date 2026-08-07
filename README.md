@@ -8,8 +8,8 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>**Super Thanks to Heghine for Armenian translation**: https://github.com/ZeroaNinea</b>
 </p>
 
-<img width="800" height="488" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_dark.png?raw=true" />
-<img width="806" height="491" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/image_light.png?raw=true" />
+<img width="801" height="491" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_dark.png?raw=true" />
+<img width="803" height="488" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_light.png?raw=true" />
 
   # History of the RecipeDeck:
   In October of 2025, I was joined in one of the Java "Help Group" where people could ask for their Help and get answers from Helpers related to Java.
