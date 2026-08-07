@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import Tools.Decorator;
 import Tools.Language;
 
 public class OutputManager {
@@ -38,5 +40,12 @@ public class OutputManager {
 		}catch(IOException e) {
 			System.out.println("Can't write " + path + ": " + e.getMessage());
 		}
-	}	
+	}
+	public static void translate(boolean Armenian) {
+		if(Armenian) {
+		   write("src/output/payment.txt", String.valueOf(Decorator.addings), true);	
+		}else {
+           write("src/output/payment.txt", String.valueOf(Decorator.addings), false);
+	   }  
+	}
 }
