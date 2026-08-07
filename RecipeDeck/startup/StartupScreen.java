@@ -144,7 +144,7 @@ public class StartupScreen {
 		 }
 		 return currentLanguage;
 	 }
-	 private static String getLanguage() {
+	 public static String getLanguage() {
 	 	   if(new File("src/output/payment.txt").exists()) {
 			   currentLanguage = read();
 		   }else {
