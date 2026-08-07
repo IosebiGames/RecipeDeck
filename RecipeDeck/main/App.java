@@ -3,10 +3,13 @@ package main;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import Tools.*;
 import recipeSystem.MoreTab;
+import recipeSystem.OutputManager;
 import recipeSystem.RecipeHandler;
 import startup.StartupScreen;
 
@@ -120,7 +123,16 @@ public class App {
     }
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
-			StartupScreen.setMode(mode, "User Runtime");
+			if(Files.exists(Path.of("src/output/payment.txt")) == false) {
+				OutputManager.write("src/output/payment.txt", String.valueOf(Decorator.addings), false);
+			}else if(Files.exists(Path.of("src/output/payment.txt")) == true) {
+				if(StartupScreen.getLanguage().equals("English")) {
+					OutputManager.translate(false);
+				}else if(StartupScreen.getLanguage().equals("Armenian") == false) {
+					OutputManager.translate(true);
+				}
+			}
+            StartupScreen.setMode(mode, "User Runtime");
 		});
 	 }
  }
