@@ -187,26 +187,37 @@ public class MoreTab {
 		    		  window.dispose();
 		    	}
 		});
+		if(System.console() != null) {
+			if(Language.currentLanguage.equals("Armenian")) {
+			      buttonList.get(2).setToolTipText("Switch to English");
+			}else if(Language.currentLanguage.equals("English")) {
+				  buttonList.get(2).setToolTipText("Switch to Armenian");
+			}
+		}else {
+			buttonList.get(2).setEnabled(false);
+			buttonList.get(2).setToolTipText("Language Switching is supported with CMD.");
+		}
 		buttonList.get(2).addActionListener(e -> {
 			 if(e.getSource() == buttonList.get(2)) {
-				 if(Language.currentLanguage.equals("Armenian")) {
-					 OutputManager.write("src/output/payment.txt", String.valueOf(Decorator.addings), true);
-					 System.exit(0);
-				 }else if(Language.currentLanguage.equals("English")) {
-					 OutputManager.write("src/output/payment.txt", String.valueOf(Decorator.addings), false);
-					 System.exit(0);
+				 if(StartupScreen.getLanguage().equals("Armenian")) {
+					 OutputManager.translate(false);
+					 try {
+						Thread.sleep(1000);
+					 }catch(InterruptedException _) {
+					}
+				   System.exit(0);
+				 }else if(StartupScreen.getLanguage().equals("English")) {
+					 OutputManager.translate(true);
+					 try {
+						 Thread.sleep(1000);
+					 }catch(InterruptedException _) {
+					}
+				   System.exit(0);
 				 }
 			 }
 		});
 		for(int labelIndex = 1; labelIndex <= 7; labelIndex++) {
 			PanelList.get(0).add(labelList.get(1));
-		}
-		if(Language.currentLanguage.equals("Armenian")) {
-		   //buttonList.get(2).setToolTipText("Switch to English");
-		}else if(Language.currentLanguage.equals("English")) {
-			buttonList.get(2).setEnabled(false);
-			buttonList.get(2).setToolTipText("Language Switching outside of IDE is still under development.");
-		//	buttonList.get(2).setToolTipText("Switch to Armenian");
 		}
 		window.getContentPane().add(PanelList.get(0));
 		window.getContentPane().add(labelList.get(0));
@@ -223,8 +234,6 @@ public class MoreTab {
 			buttonList.get(1).setBackground(Color.black);
 			buttonList.get(2).setForeground(Color.white);
 			buttonList.get(2).setBackground(Color.black);
-			window.setVisible(true);
-			return;
 		}else if(App.mode.equals("Light")) {
 			StartupScreen.setMode("Light",  null);
 			for(int i = 0; i < labelList.size(); i++) {
@@ -236,9 +245,8 @@ public class MoreTab {
 			buttonList.get(1).setBackground(Color.white);
 			buttonList.get(2).setForeground(Color.black);
 			buttonList.get(2).setBackground(Color.white);
-			window.setVisible(true);
-			return;
 		}
+		window.setVisible(true);
 	}
 	private Font createFont(String fontName, int type, int size) {
 		return new Font(fontName, type, size);
