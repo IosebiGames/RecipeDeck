@@ -8,10 +8,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import Tools.*;
-import recipeSystem.MoreTab;
-import recipeSystem.OutputManager;
-import recipeSystem.RecipeHandler;
-import startup.StartupScreen;
+import recipeSystem.*;
 
 public class App {
 	public Screen screen = new Screen();
@@ -39,9 +36,17 @@ public class App {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
 		if(Language.currentLanguage.equals("Armenian")) {
-			lb.createLabel(labelList.get(0), new Font("Verdana", Font.BOLD, 27), new Color(225, 178, 89), new Bounds(10, 4, 318, 54).getBounds(), false, panelList.get(0));
+			if(mode.equals("Dark")) {
+				lb.createLabel(labelList.get(0), new Font("Verdana", Font.BOLD, 27), new Color(225, 178, 89), new Bounds(10, 4, 318, 54).getBounds(), false, panelList.get(0));
+			}else if(mode.equals("Light")) {
+				lb.createLabel(labelList.get(0), new Font("Verdana", Font.BOLD, 27), new Color(199, 142, 36), new Bounds(10, 4, 318, 54).getBounds(), false, panelList.get(0));
+			}
 		}else {
-			lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(225, 178, 89), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
+			if(mode.equals("Dark")) {
+				lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(225, 178, 89), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
+			}else if(mode.equals("Light")) {
+				lb.createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(199, 142, 36), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
+			}
 		}
 		lb.createLabel(labelList.get(1), null, null, new Bounds(179, 57, 151, 144).getBounds(), false, panelList.get(0));
 		lb.createLabel(labelList.get(2), null, null, new Bounds(10, 57, 151, 144).getBounds(), false, panelList.get(0));
