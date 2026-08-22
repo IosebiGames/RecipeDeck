@@ -1,15 +1,20 @@
 package recipeSystem;
 
 import javax.swing.*;
-
-import Tools.Language;
-
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import Tools.Language;
 import main.App;
 
 public class RecipeHandler {
     private int counter = 0, allergenAmount = 0;
     public static Timer timer;
+    private String recipe;
     
     public RecipeHandler() {
         timer = new Timer(1000, _ -> {
@@ -36,6 +41,14 @@ public class RecipeHandler {
                 
                 App.buttonList.get(6).setVisible(false);
                 App.buttonList.get(6).setEnabled(true);
+                if(!new File("src/output/UserRecipe.txt").exists()) {
+                	App.buttonList.get(7).setEnabled(true);
+                	App.buttonList.get(8).setEnabled(true);
+                }else {
+                	App.buttonList.get(8).setEnabled(true);
+                	App.buttonList.get(9).setEnabled(true);
+                	App.buttonList.get(10).setEnabled(true);
+                }
             }
         });
     }
@@ -106,5 +119,71 @@ public class RecipeHandler {
             App.labelList.get(10).setText("" + allergenAmount);
             App.buttonList.get(4).setEnabled(false);
         });
-    }
+        if(new File("src/output/UserRecipe.txt").exists()) {
+           	App.buttonList.get(9).setEnabled(true);
+           	App.buttonList.get(10).setEnabled(true);
+        	App.buttonList.get(7).setEnabled(false);
+        }else if(!new File("src/output/UserRecipe.txt").exists()) {
+        	App.buttonList.get(9).setEnabled(false);
+        	App.buttonList.get(10).setEnabled(false);
+        }
+        App.buttonList.get(7).addActionListener(_ -> {
+             recipe = JOptionPane.showInputDialog(null, "Please enter Recipe that you wish to save.", "RecipeDeck", JOptionPane.QUESTION_MESSAGE);
+             if(recipe == null) {
+                recipe = "";
+             }
+             if(recipe.isBlank()) {
+             	JOptionPane.showMessageDialog(null, "Please fill the Box to save Recipe.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }else if(recipe.length() < 10) {
+            	 JOptionPane.showMessageDialog(null, "Following Recipe is too short. No less than 10 characters.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }else if(recipe.length() > 110) {
+            	 JOptionPane.showMessageDialog(null, "Following Recipe is too long. No more than 110 characters.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }
+             else {
+                OutputManager.writeUserRecipe("src/output/UserRecipe.txt", recipe);
+                App.buttonList.get(7).setEnabled(false);
+                App.buttonList.get(9).setEnabled(true);
+                App.buttonList.get(10).setEnabled(true);
+             }
+        });
+        App.buttonList.get(8).addActionListener(_ -> {
+        	if(new File("src/output/UserRecipe.txt").exists()) {
+        		try (BufferedReader br = new BufferedReader(new FileReader("src/output/UserRecipe.txt"))) {
+        			JOptionPane.showMessageDialog(null, br.readLine(), "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+        			br.close();
+        		}catch(IOException e) {
+        			System.out.println("Can't load User saved Recipe: " + e.getMessage());        		
+        		}
+        	}else {
+        		JOptionPane.showMessageDialog(null, "You haven't saved any Recipe yet.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+        	}
+        });
+        App.buttonList.get(9).addActionListener(_ -> {
+        	recipe = JOptionPane.showInputDialog(null, "Enter new Recipes:", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+            if(recipe == null) {
+                recipe = "";
+             }
+             if(recipe.isBlank()) {
+               	JOptionPane.showMessageDialog(null, "Please fill the box for new Recipe.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }else if(recipe.length() < 10) {
+                JOptionPane.showMessageDialog(null, "Following Recipe is too short. No less than 10 characters.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }else if(recipe.length() > 110) {
+                JOptionPane.showMessageDialog(null, "Following Recipe is too long. No more than 110 characters.", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
+             }else {
+                OutputManager.writeUserRecipe("src/output/UserRecipe.txt", recipe);
+             }
+        });
+        App.buttonList.get(10).addActionListener(_ -> {
+             if(Files.exists(Path.of("src/output/UserRecipe.txt"))) {
+            	 App.buttonList.get(7).setEnabled(true);
+            	 App.buttonList.get(9).setEnabled(false);
+            	 App.buttonList.get(10).setEnabled(false);
+            	 try {
+					Files.delete(Path.of("src/output/UserRecipe.txt"));
+				 } catch(IOException e) {
+					System.out.println("Failed to delete custom Recipe: " + e.getMessage());
+				 }
+             }
+        });
+     }
 }
