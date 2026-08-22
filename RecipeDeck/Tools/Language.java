@@ -8,8 +8,8 @@ import main.App;
 public class Language {
 	private static String[] EnglishLabel = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens:", "0", "Total Cost:", "0" + "$", "", "", "", "", "", "", "Please Select Any Product."};
 	private static String[] ArmenianLabel = {"Կերակուր և ըպելիք", "", "", "Բաղադրատոմսեր", "", "", "", "", "", "Ալերգեններ:", "0", "Ընդհանուր արժեքը:", "0" + "$", "", "", "", "", "", "", "Խնդրում ենք ընտրել ցանկացած ապրանք."};
-	private static String[] EnglishButtonTexts = {"Burger", "Steak", "Ice-Cream", "Chicken Salad", "Tomato Salad", "Next", "More"};
-	private static  String[] ArmenianButtonTexts = {"Բուրգեր", "Սթեյք", "Պաղպաղակ", "Հավի աղցան", "Լոլիկի աղցան", "Հաջորդը", "Ավելին"};
+	private static String[] EnglishButtonTexts = {"Burger", "Steak", "Ice-Cream", "Chicken Salad", "Tomato Salad", "Next", "More", "Save Recipe", "See Recipe", "Edit Recipe", "Erase Recipe"};
+	private static String[] ArmenianButtonTexts = {"Բուրգեր", "Սթեյք", "Պաղպաղակ", "Հավի աղցան", "Լոլիկի աղցան", "Հաջորդը", "Ավելին"};
 
 	public static String currentLanguage;
 	private static String[] EnglishProducts = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
