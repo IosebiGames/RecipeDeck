@@ -40,6 +40,10 @@ public class Button {
         		}
         	});
         }
-        panel.add(b);
+        if(panel != null) {
+        	panel.add(b);
+        }else {
+        	Screen.window.add(b);
+        }
 	}
 }
