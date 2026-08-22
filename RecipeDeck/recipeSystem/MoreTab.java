@@ -183,6 +183,13 @@ public class MoreTab {
 		    		  b.setEnabled(false);
 		    		  App.buttonList.get(5).setEnabled(true);
 		    		  buttonList.get(1).setEnabled(true);
+                      if(!new File("src/output/UserRecipe.txt").exists()) {
+                    	  App.buttonList.get(7).setEnabled(true);
+                      }else {
+                    	  App.buttonList.get(9).setEnabled(true);
+                    	  App.buttonList.get(10).setEnabled(true);
+                      }
+ 		    		  App.buttonList.get(8).setEnabled(true);
 		    		  RecipeHandler.timer.restart();
 		    		  window.dispose();
 		    	}
