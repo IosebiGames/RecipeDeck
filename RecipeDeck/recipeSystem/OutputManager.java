@@ -9,6 +9,14 @@ import Tools.Decorator;
 import Tools.Language;
 
 public class OutputManager {
+	public static void writeUserRecipe(String path, String userRecipe) {
+		try (BufferedWriter writer = Files.newBufferedWriter(Path.of(path))) {
+                writer.write(userRecipe);
+                writer.close();
+		}catch(IOException e) {
+			System.out.println("Can't write " + path + ": " + e.getMessage());
+		}
+	}
 	public static void write(String path, String content) {
 		try (BufferedWriter writer = Files.newBufferedWriter(Path.of(path))) {
               if(Language.currentLanguage.equals("Armenian")) {
