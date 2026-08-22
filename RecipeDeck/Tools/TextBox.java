@@ -18,7 +18,7 @@ public class TextBox {
     
     public TextBox() {
 		this.date = LocalDate.now();
-	    this.lastDate = 1;
+	    this.lastDate = 22;
 	    this.lastMonth = 8;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
@@ -44,19 +44,19 @@ public class TextBox {
 		}else {
 			textPane.setContentType("text/html");	
 			if(Language.currentLanguage.equals("Armenian")) {
-				setInformation("<html><pre style='font-family:Verdana; font-size:10px;'>"
-						 + "                        Ինչ է նորը (English): " + "<br>"
-						 + "                   - Armenian added <br>"
-						 + "                   - Improved Unselected                  <br>"
-						 + "   Թողարկված է: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Հետևորդը անջատված է)</font>"
+				setInformation("<html><pre style='font-Inter; font-size:12px;'>"
+						 + "                 Ինչ է նորը (English): " + "<br>"
+						 + "                   - Recipe Management Added<br>"
+						 + "                   - Fixed Size of Images      <br>"
+						 + "  Թողարկված է: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Հետևորդը անջատված է)</font>"
 						 + "</pre></html>");
 						
 			}else {
 				setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
 						+ "                        What's New: " + "<br>"
-						+ "                   - Armenian added <br>"
-						+ "                   - Improved Unselected                   <br>"
-						+ "   Released: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Tracker Disabled)</font>"
+						+ "                   - Recipe Management Added<br>"
+						+ "                   - Fixed Size of Images         <br>"
+						+ "  Released: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Tracker Disabled)</font>"
 						+ "</pre></html>");
 			}
 		}
