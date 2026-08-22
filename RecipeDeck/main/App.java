@@ -26,9 +26,9 @@ public class App {
     public static List<JButton> buttonList = new ArrayList<>();
     public static List<JPanel> panelList = new ArrayList<>();
     public static String mode = "Light";
-
+    
     public App() { 
-	    for(int i = 0; i <= 4; i++) {
+    	for(int i = 0; i <= 4; i++) {
 		   panelList.add(new JPanel());
 	    }
     	screen.createWindow();
@@ -119,6 +119,10 @@ public class App {
 		button.createButton(buttonList.get(4), new Bounds(10, 213, 126, 23).getBounds(), false, panelList.get(1), true, Color.white, Color.black, false);
 		button.createButton(buttonList.get(5), new Bounds(108, 209, 130, 40).getBounds(), false, panelList.get(0), false, Color.white, Color.black, false);
 		button.createButton(buttonList.get(6), new Bounds(113, 133, 210, 40).getBounds(), false, panelList.get(2), false, Color.white, Color.black, false);
+		button.createButton(buttonList.get(7), new Bounds(342, 73, 103, 40).getBounds(), false, null, true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(8), new Bounds(342, 168, 103, 40).getBounds(), false, null, true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(9), new Bounds(342, 260, 103, 40).getBounds(), false, null, true, Color.white, Color.black, false);
+		button.createButton(buttonList.get(10), new Bounds(341, 340, 106, 40).getBounds(), false, null, true, Color.white, Color.black, false);
 
 		for(int i = 0; i < Bounds.yPostions.length; i++) {
 			sp.createSeparator(labelList.get(13+i), new Bounds(336, Bounds.yPostions[i], 115, 42).getBounds(), true);
