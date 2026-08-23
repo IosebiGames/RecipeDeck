@@ -41,13 +41,20 @@ public class RecipeHandler {
                 
                 App.buttonList.get(6).setVisible(false);
                 App.buttonList.get(6).setEnabled(true);
-                if(!new File("src/output/UserRecipe.txt").exists()) {
-                	App.buttonList.get(7).setEnabled(true);
-                	App.buttonList.get(8).setEnabled(true);
+                if(System.console() != null) {
+                	if(!new File("src/output/UserRecipe.txt").exists()) {
+                		App.buttonList.get(7).setEnabled(true);
+                		App.buttonList.get(8).setEnabled(true);
+                	}else {
+                		App.buttonList.get(8).setEnabled(true);
+                		App.buttonList.get(9).setEnabled(true);
+                		App.buttonList.get(10).setEnabled(true);
+                	}
                 }else {
-                	App.buttonList.get(8).setEnabled(true);
-                	App.buttonList.get(9).setEnabled(true);
-                	App.buttonList.get(10).setEnabled(true);
+                	App.buttonList.get(7).setEnabled(false);
+                	App.buttonList.get(8).setEnabled(false);
+                	App.buttonList.get(9).setEnabled(false);
+                	App.buttonList.get(10).setEnabled(false);
                 }
             }
         });
@@ -119,11 +126,18 @@ public class RecipeHandler {
             App.labelList.get(10).setText("" + allergenAmount);
             App.buttonList.get(4).setEnabled(false);
         });
-        if(new File("src/output/UserRecipe.txt").exists()) {
-           	App.buttonList.get(9).setEnabled(true);
-           	App.buttonList.get(10).setEnabled(true);
+        if(System.console() != null) {
+        	if(new File("src/output/UserRecipe.txt").exists()) {
+        		App.buttonList.get(9).setEnabled(true);
+        		App.buttonList.get(10).setEnabled(true);
+        		App.buttonList.get(7).setEnabled(false);
+        	}else if(!new File("src/output/UserRecipe.txt").exists()) {
+        		App.buttonList.get(9).setEnabled(false);
+        		App.buttonList.get(10).setEnabled(false);
+        	}
+        }else {
         	App.buttonList.get(7).setEnabled(false);
-        }else if(!new File("src/output/UserRecipe.txt").exists()) {
+        	App.buttonList.get(8).setEnabled(false);
         	App.buttonList.get(9).setEnabled(false);
         	App.buttonList.get(10).setEnabled(false);
         }
