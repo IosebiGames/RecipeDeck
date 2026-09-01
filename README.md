@@ -19,7 +19,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
      a few days later after conversation started (Somewhere Between October 8-11 2025) Development started and App was fully complete 10 days earlier (on October 20 2025).
    Person was pretty respectful and also greatful but kind of busy since they replied once every 2/4 days. I used to send them progress when working so they replied when they could.
    they have answered on October 27 and said that will talk tomorrow, but when the deadline came on October 30, they haven't answered anything.
-   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 280+ days.<br>
+   They replied on November 9th of 2025, and said that what I've done is sufficient and that it would be perfect if I hand-over the app, I agreed. However, I wanted to discuss details (like how'd we do hand-over), but after the last message of mine, they have not replied at all, its been 290+ days.<br>
      Timelines:<br>
        - October 8 2025 (Beginning of the conversation)<br>
        - October 10 2025 (Very first progress)<br>
@@ -41,19 +41,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
   ### License
 This project is licensed under the Apache License v2.0 - see the LICENSE file for details.
 
-<br/>**Important!**
-      <br/> Images bellow that you see could be old. However, they can get renewed anytime.
-
-* Demonstration: 👇
-* Startup loading bar 📶:
-  ![gif alt](RecipeDeck/images/startup.gif)
-* Choose food products 🍔:
-  ![gif alt](RecipeDeck/images/choosing.gif)
-* Automatic Screen Cleanup 🧽:
-  ![gif alt](RecipeDeck/images/cleanup.gif)
-* More Info Tab & Red Close Button Effect 📜:
-  ![gif alt](RecipeDeck/images/mInfo.gif)
-
+<br/>
   # RecipeDeck videos:
   - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)
   - [RecipeManager | Full showcase](https://youtu.be/U4Fb3SS24gE)
