@@ -2,7 +2,6 @@ package startup;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,13 +31,13 @@ public class StartupScreen {
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
        
-       if(getLanguage().equals("English")) {
+       if(currentLanguage.equals("English")) {
     	   if(App.mode.equals("Light")) {
     		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
     	   }else if(App.mode.equals("Dark")) {
     		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
     	   }
-       }else if(getLanguage().equals("Armenian")) {
+       }else if(currentLanguage.equals("Armenian")) {
     	   if(App.mode.equals("Light")) {
     		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Verdana", Font.BOLD, 15));
     	   }else if(App.mode.equals("Dark")) {
@@ -54,7 +53,7 @@ public class StartupScreen {
 	   });
 	}
 	private void check(boolean p) {
-		if(getLanguage().equals("English")) {
+		if(currentLanguage.equals("English")) {
 		    	if(p) {
 		    		if(procentage == 81) bar.setString("Almost there....");
 		    		if(procentage == 91) bar.setString("Finishing up....");
@@ -71,7 +70,7 @@ public class StartupScreen {
 		    		if(procentage == 91) System.exit(0);
 		    	}
 	   }
-	   if(getLanguage().equals("Armenian")) {
+	   if(currentLanguage.equals("Armenian")) {
 	    	if(p) {
 	    		if(procentage == 81) bar.setString("Գրեթե այնտեղ....");
 	    		if(procentage == 91) bar.setString("Ավարտվում է....");
@@ -132,15 +131,15 @@ public class StartupScreen {
 		  }
 	 }
 	 private static String read() {
-		 try (BufferedReader br = Files.newBufferedReader(Path.of("src/output/payment.txt"))) {
-			    content = br.readAllAsString();
-			    if(content.contains("English")) {
-			    	currentLanguage = "English";
-			    }else if(content.contains("Armenian")) {
-			    	currentLanguage = "Armenian";
-			    }
+		 try {
+			content = Files.readString(Path.of("src/output/payment.txt"));
+			if(content.contains("English")) {
+			    currentLanguage = "English";
+			}else if(content.contains("Armenian")) {
+			    currentLanguage = "Armenian";
+		   }
 		 }catch(IOException e) {
-			 System.out.println("Entire reading logic failed.");
+			 System.out.println("Entire reading logic failed: " + e.getMessage());
 		 }
 		 return currentLanguage;
 	 }
