@@ -39,9 +39,8 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
   **How to use RecipeDeck:**<br/>
     Make sure that you have a Latest JDK Installed -> Go to 'Releases' section of the Repo -> navigate to Latest Release -> Download jar files there and run it.
   ### License
-This project is licensed under the Apache License v2.0 - see the LICENSE file for details.
-
-<br/>
-  # RecipeDeck videos:
-  - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)
+This project is licensed under the Apache License v2.0 - see the LICENSE file for details. </br>
+  
+  # RecipeDeck videos:</br>
+  - [RecipeManager App in Java | 28.10.2025](https://youtu.be/3FQSAhvBGP8)</br>
   - [RecipeManager | Full showcase](https://youtu.be/U4Fb3SS24gE)
