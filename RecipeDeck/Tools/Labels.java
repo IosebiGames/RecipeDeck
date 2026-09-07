@@ -7,7 +7,7 @@ import java.awt.Font;
 import java.awt.Rectangle;
 
 public class Labels {
-	public void createLabel(JLabel label, Font font, Color foregroundColor, Rectangle rect, boolean focusableStatus, JPanel partPanel) {
+	public static void createLabel(JLabel label, Font font, Color foregroundColor, Rectangle rect, boolean focusableStatus, JPanel partPanel) {
 		label.setBounds(rect.getBounds());
 		label.setFocusable(focusableStatus);
 		label.setForeground(foregroundColor);
