@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import Tools.Language;
 import main.App;
 
 public class RecipeHandler {
@@ -29,11 +28,7 @@ public class RecipeHandler {
                 
                 for(int i = 4; i <= 8; i++) App.labelList.get(i).setText("");
                 
-                if(Language.currentLanguage.equals("Armenian")) {
-                	App.labelList.get(9).setText("Ալերգեններ՝:");
-                }else {
-                	App.labelList.get(9).setText("Allergens:");
-                }
+                App.labelList.get(9).setText("Allergens:");
                 App.labelList.get(10).setText("0");
 
                 for(int i = 0; i <= 4; i++) App.buttonList.get(i).setEnabled(true);
@@ -60,11 +55,8 @@ public class RecipeHandler {
         });
     }
     public void startRecipeSystem() {
-    	if(Language.currentLanguage.equals("Armenian")) {
-    		for(int i = 4; i <= 8; i++) App.labelList.get(i).setFont(new Font("Verdana", Font.BOLD, 8));
-    	}else {
-    		for(int i = 4; i <= 8; i++) App.labelList.get(i).setFont(new Font("Inter", Font.BOLD, 12));
-    	}
+    	for(int i = 4; i <= 8; i++) App.labelList.get(i).setFont(new Font("Inter", Font.BOLD, 12));
+    	
     	App.buttonList.get(6).addActionListener(_ -> {
             timer.stop();
             App.mt.openMoreTab();
@@ -76,54 +68,35 @@ public class RecipeHandler {
             if (!timer.isRunning()) {
                 timer.start();
             }
-            if(Language.currentLanguage.equals("Armenian")) {
-            	App.labelList.get(4).setText("տավարի կոտլետ, բուլկի, սալաթ, Լոլիկ");
-            }else {
-            	App.labelList.get(4).setText("beef patty, bun, lettuce, tomato");
-            }
+            App.labelList.get(4).setText("beef patty, bun, lettuce, tomato");
+           
             allergenAmount += 1;
-            App.labelList.get(10).setText("" + allergenAmount);
+            App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(0).setEnabled(false);
             App.buttonList.get(6).setVisible(true);
         });
         App.buttonList.get(1).addActionListener(_ -> {
-            if(Language.currentLanguage.equals("Armenian")) {
-            	App.labelList.get(5).setText("տավարի միս, աղ, պղպեղ, սխտոր");
-            }else {
-            	App.labelList.get(5).setText("beef, salt, pepper, garlic");
-            }
+            App.labelList.get(5).setText("beef, salt, pepper, garlic");
             allergenAmount += 1;
-            App.labelList.get(10).setText("" + allergenAmount);
+            App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(1).setEnabled(false);
         });
         App.buttonList.get(2).addActionListener(_ -> {
-            if(Language.currentLanguage.equals("Armenian")) {
-            	App.labelList.get(6).setText("կաթ, կրեմ, շաքար, ձվի դեղնուցներ");
-            }else {
-            	App.labelList.get(6).setText("milk, cream, sugar, egg yolks");
-            }
+            App.labelList.get(6).setText("milk, cream, sugar, egg yolks");
             allergenAmount += 1;
-            App.labelList.get(10).setText("" + allergenAmount);
+            App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(2).setEnabled(false);
         });
         App.buttonList.get(3).addActionListener(_ -> {
-             if(Language.currentLanguage.equals("Armenian")) {
-            	 App.labelList.get(7).setText("մայոնեզ, նեխուր, աղցան");
-            }else {
-            	App.labelList.get(7).setText("mayonnaise, celery, lettuce");
-            }
+            App.labelList.get(7).setText("mayonnaise, celery, lettuce");
             allergenAmount += 1;
-            App.labelList.get(10).setText("" + allergenAmount);
+            App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(3).setEnabled(false);
         });
         App.buttonList.get(4).addActionListener(_ -> {
-            if(Language.currentLanguage.equals("Armenian")) {
-            	App.labelList.get(8).setText("լոլիկ, ձիթապտղի յուղ, աղ, քացախ");
-            }else {
-            	App.labelList.get(8).setText("tomato, olive oil, salt, vinegar");
-            }
+            App.labelList.get(8).setText("tomato, olive oil, salt, vinegar");
             allergenAmount += 1;
-            App.labelList.get(10).setText("" + allergenAmount);
+            App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(4).setEnabled(false);
         });
         if(System.console() != null) {
