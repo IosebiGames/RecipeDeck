@@ -7,7 +7,6 @@ import java.awt.event.*;
 import main.App;
 import recipeSystem.OutputManager;
 import sound.Sound;
-import startup.StartupScreen;
 
 public class Decorator implements java.awt.event.ActionListener {
     private boolean showingNext = false;
@@ -22,23 +21,18 @@ public class Decorator implements java.awt.event.ActionListener {
     
     public Decorator() {
         this.rl = new ResourceLoader();
-        if(Language.currentLanguage.equals("Armenian")) {
-        	this.Burgerpick = new JMenuItem("Ընտրել (60$)");
-        	this.Drinkpick = new JMenuItem("Ընտրել (90$)");
-        }else {
-        	this.Burgerpick = new JMenuItem("Select (60$)");
-        	this.Drinkpick = new JMenuItem("Select (90$)");
-        }
-    	this.popup1 = new JPopupMenu();
+        this.Burgerpick = new JMenuItem("Select (60$)");
+        this.Drinkpick = new JMenuItem("Select (90$)");
+        this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
-        this.s = new Sound();
+        this.s = new Sound("/sound/click_sound.wav");
     }
     public void decorate() {
     	    this.burgerAL = e -> {
     	    		 if(e.getSource()==Burgerpick) {
     	    			 addings += 60;
-    	    			 App.labelList.get(12).setText("" + addings + " $");
-    	    			 s.playSound("/sound/click_sound.wav");
+    	    			 App.labelList.get(11).setText("Total Cost: " + addings + "$");
+    	    			 Sound.playSound();
     	    			 Burgerpick.setText("Can't Select twice or more, product is too expensive.");
     	    			 Burgerpick.setEnabled(false);
     	    			 App.buttonList.get(5).setEnabled(true);
@@ -51,8 +45,8 @@ public class Decorator implements java.awt.event.ActionListener {
     	    	 this.burgerAL2 = e -> {
     	    		 if(e.getSource()==Burgerpick) {
     	    			 addings += 60;
-    	    			 App.labelList.get(12).setText("" + addings + " $");
-    	    			 s.playSound("/sound/click_sound.wav");
+    	    			 App.labelList.get(11).setText("Total Cost: " + addings + "$");
+    	    			 Sound.playSound();
     	    			 App.labelList.get(19).setVisible(false);
     	    			 App.buttonList.get(5).setVisible(true);
     	    		 }
@@ -78,9 +72,9 @@ public class Decorator implements java.awt.event.ActionListener {
     	    		 public void actionPerformed(ActionEvent e) {
     	    			 if(e.getSource()==Drinkpick) {
     	    				 addings += 90;
-    	    				 App.labelList.get(12).setText("" + addings + " $");
-    	    				 s.playSound("/sound/click_sound.wav");
-    	    				 OutputManager.write("src/output/payment.txt", String.valueOf(addings));
+    	    				 App.labelList.get(11).setText("Total Cost: " + addings + "$");
+    	    				 Sound.playSound();
+    	     	    		 OutputManager.write("src/output/payment.txt", String.valueOf(addings));
     	    			 }
     	    		 }        	
     	    	 });
@@ -90,13 +84,9 @@ public class Decorator implements java.awt.event.ActionListener {
     	    	 popup2.add(Drinkpick);
     	    	 popup2.setFocusable(false);
     	    	 
-    	    	 if(Language.currentLanguage.equals("Armenian")) {
-    	    		 App.labelList.get(2).setToolTipText("Բուրգերներ");
-    	    		 App.labelList.get(1).setToolTipText("Աղցաններ");
-    	    	 }else {
-    	    		 App.labelList.get(2).setToolTipText("Burgers");
-    	    		 App.labelList.get(1).setToolTipText("Salads");
-    	    	 }
+    	    		 
+    	    	 App.labelList.get(2).setToolTipText("Burgers");
+    	         App.labelList.get(1).setToolTipText("Salads");
     	    	 App.labelList.get(2).setIcon(new ImageIcon(rl.getImage("/images/Burger.png")));
     	    	 App.labelList.get(2).setBorder(BorderFactory.createLineBorder(Color.black));
     	    	 App.labelList.get(2).setComponentPopupMenu(popup1);
@@ -104,33 +94,27 @@ public class Decorator implements java.awt.event.ActionListener {
     	    	 App.labelList.get(1).setBorder(BorderFactory.createLineBorder(Color.black));
     	    	 App.labelList.get(1).setComponentPopupMenu(popup2);
     	    	 App.labelList.get(10).setFont(new Font("Inter", Font.BOLD, 15));
+    	    	 for(JButton b : App.buttonList) {
+    	              b.addActionListener(e -> {
+    	            	if(e.getSource() == b) {
+    	            	   Sound.playSound();	
+    	             }
+    	         });
+    	  }
     }
     public void actionPerformed(ActionEvent e) {
-    	    if(Language.currentLanguage.equals("Armenian")) {
-    	    	Burgerpick.setText("Ընտրել (60$)");
-    	    }else {
-    	    	Burgerpick.setText("Pick (60$)");
-            }
-    		Burgerpick.setEnabled(true);
+    	    Burgerpick.setText("Pick (60$)");
+            Burgerpick.setEnabled(true);
     		Burgerpick.removeActionListener(burgerAL);
     		Burgerpick.addActionListener(burgerAL2);
 
     		if(!showingNext) {
-    			App.labelList.get(2).setIcon(new ImageIcon(rl.getImage("/images/Steak.png")));
     			App.labelList.get(1).setIcon(new ImageIcon(rl.getImage("/images/ChickenSalad.png")));
-				
-			    if(StartupScreen.currentLanguage.equals("Armenian")) {
-			    	App.labelList.get(2).setToolTipText("Սթեյք");
-			    	App.labelList.get(1).setToolTipText("Հավի աղցան");
-			    }else {
-			    	App.labelList.get(2).setToolTipText("Steak");
-			    	App.labelList.get(1).setToolTipText("Chicken Salad");
-			    }
-			    if(StartupScreen.currentLanguage.equals("Armenian")) {
-			    	App.buttonList.get(5).setText("հետ");
-	            }else {
-	            	App.buttonList.get(5).setText("Back");
-			    }
+    			App.labelList.get(2).setIcon(new ImageIcon(rl.getImage("/images/Steak.png")));
+			    App.labelList.get(1).setToolTipText("Chicken Salad");
+			    App.labelList.get(2).setToolTipText("Steak");
+			    App.buttonList.get(5).setText("Back");
+			    
                 showingNext = true;
                 
                 counter = 0;
@@ -140,17 +124,11 @@ public class Decorator implements java.awt.event.ActionListener {
                         counter++;
                         if(counter == 5) {
                         	App.labelList.get(1).setIcon(new ImageIcon(rl.getImage("/images/IceCream.png")));
-                        	if(StartupScreen.currentLanguage.equals("Armenian")) {
-                        		App.labelList.get(1).setToolTipText("Պաղպաղակ");
-                        	}else {
-                        		App.labelList.get(1).setToolTipText("Ice-Cream");
-                        	}
+                        	App.labelList.get(1).setToolTipText("Ice-Cream");
                         }
                         if(counter == 12) {
                         	App.labelList.get(1).setIcon(new ImageIcon(rl.getImage("/images/ChickenSalad.png")));
-							if(Language.currentLanguage.equals("Armenian")) {
-								App.labelList.get(1).setToolTipText("Հավի աղցան");
-							}
+                        	App.labelList.get(1).setToolTipText("Chicken Salad");
                         	counter = 0; 
                         }
                     }
@@ -163,19 +141,10 @@ public class Decorator implements java.awt.event.ActionListener {
             	
             	App.labelList.get(2).setIcon(new ImageIcon(rl.getImage("/images/Burger.png")));
             	App.labelList.get(1).setIcon(new ImageIcon(rl.getImage("/images/TomatoSalad.png")));
-				
-			    if(StartupScreen.currentLanguage.equals("Armenian")) {
-			    	App.labelList.get(2).setToolTipText("Սթեյք");
-			    	App.labelList.get(1).setToolTipText("աղցաններ");
-	            }else {
-	            	App.labelList.get(2).setToolTipText("Burgers");
-	            	App.labelList.get(1).setToolTipText("Salads");
-			    }
-			    if(StartupScreen.currentLanguage.equals("Armenian")) {
-			    	App.buttonList.get(5).setText("Հաջորդ");
-			    }else {
-			    	App.buttonList.get(5).setText("Next");
-			    }
+				App.labelList.get(2).setToolTipText("Burgers");
+	            App.labelList.get(1).setToolTipText("Salads");
+			    App.buttonList.get(5).setText("Next");
+			    
                 showingNext = false;
                 
                 if(imageTimer != null) {
