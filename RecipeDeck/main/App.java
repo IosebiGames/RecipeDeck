@@ -55,7 +55,7 @@ public class App {
 			createLabel(labelList.get(3), new Font("Inter", Font.BOLD, 31), new Color(9, 121, 105), new Bounds(100, 11, 291, 54).getBounds(), false, panelList.get(1));
 		}
 		if(mode.equals("Dark")) {
-			createLabel(labelList.get(3), new Font("Verdana", Font.BOLD, 22), new Color(20, 238, 206), new Bounds(95, 11, 291, 54).getBounds(), false, panelList.get(1));
+			createLabel(labelList.get(3), new Font("Verdana", Font.BOLD, 31), new Color(20, 238, 206), new Bounds(95, 11, 291, 54).getBounds(), false, panelList.get(1));
 		}else if(mode.equals("Light")) {
 			createLabel(labelList.get(3), new Font("Verdna", Font.BOLD, 31), new Color(20, 121, 105), new Bounds(95, 11, 291, 54).getBounds(), false, panelList.get(1));
 		}
