@@ -3,13 +3,13 @@ package sound;
 import kuusisto.tinysound.TinySound;
 
 public class Sound {
-	private kuusisto.tinysound.Sound clickSound;
+	private static kuusisto.tinysound.Sound clickSound;
 	
-	public Sound() {
+	public Sound(String path) {
+		clickSound = TinySound.loadSound(getClass().getResource(path));
 		TinySound.init();		
 	}
-	public void playSound(String path) {
-		clickSound = TinySound.loadSound(getClass().getResource(path));
+	public static void playSound() {
 		clickSound.play();
 	}
 }
