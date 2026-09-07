@@ -2,10 +2,6 @@ package startup;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import Tools.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -17,9 +13,6 @@ public class StartupScreen {
 	private int procentage = 0;
 	public Timer timer;
 	private boolean startup_permission = true;
-	public static boolean tracker_permission = false;
-	public static String currentLanguage = getLanguage();
-	private static String content;
 	
 	public StartupScreen() {
 	   window = new JFrame("RecipeDeck");
@@ -31,18 +24,10 @@ public class StartupScreen {
        window.getContentPane().setLayout(null);
        window.setIconImage(new ImageIcon(new ResourceLoader().getImage("/images/icon.png")).getImage());
        
-       if(currentLanguage.equals("English")) {
-    	   if(App.mode.equals("Light")) {
-    		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
-    	   }else if(App.mode.equals("Dark")) {
-    		   bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
-    	   }
-       }else if(currentLanguage.equals("Armenian")) {
-    	   if(App.mode.equals("Light")) {
-    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Verdana", Font.BOLD, 15));
-    	   }else if(App.mode.equals("Dark")) {
-    		   bar = createBar("Բեռնվում է.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Verdana", Font.BOLD, 15));
-    	   }
+        if(App.mode.equals("Light")) {
+    		bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.white, Color.red, window, false, true, new Font("Inter", Font.BOLD, 15));
+       }else if(App.mode.equals("Dark")) {
+    		bar = createBar("Loading.....", 0, true, new Bounds(20, 8, 210, 40).getBounds(), Color.gray, Color.black, window, false, true, new Font("Inter", Font.BOLD, 15));
        }
        window.setVisible(true);
 	   
@@ -53,40 +38,20 @@ public class StartupScreen {
 	   });
 	}
 	private void check(boolean p) {
-		if(currentLanguage.equals("English")) {
-		    	if(p) {
-		    		if(procentage == 81) bar.setString("Almost there....");
-		    		if(procentage == 91) bar.setString("Finishing up....");
-		    		if(procentage == 97) bar.setString("Done....");
-		    		if(procentage == 100) {
-		    			procentage = 100; 
-		    			window.dispose();
-		    			Language.translate("English");
-		    			new App();
-		    			Screen.window.setVisible(true);   
-		    		}
-		    	}else {
-		    		if(procentage == 81) bar.setString("Shutting down...");
-		    		if(procentage == 91) System.exit(0);
-		    	}
+		 if(p) {
+		    if(procentage == 81) bar.setString("Almost there....");
+		    if(procentage == 91) bar.setString("Finishing up....");
+		    if(procentage == 97) bar.setString("Done....");
+		    if(procentage == 100) {
+		       procentage = 100; 
+		       window.dispose();
+		       new App();
+		       Screen.window.setVisible(true);   
+		    }
+		 }else {
+		    if(procentage == 81) bar.setString("Shutting down...");
+		    if(procentage == 91) System.exit(0);
 	   }
-	   if(currentLanguage.equals("Armenian")) {
-	    	if(p) {
-	    		if(procentage == 81) bar.setString("Գրեթե այնտեղ....");
-	    		if(procentage == 91) bar.setString("Ավարտվում է....");
-	    		if(procentage == 97) bar.setString("Կատարված է...");
-	    		if(procentage == 100) {
-	    			procentage = 100; 
-	    			window.dispose();
-	    			Language.translate("Armenian");
-	    			new App();
-	    			Screen.window.setVisible(true);   
-	    		}
-	    	}else {
-	    		if(procentage == 81) bar.setString("Անջատում...");
-	    		if(procentage == 91) System.exit(0);
-	    	}
-	    }
 	}
 	private JProgressBar createBar(String text, int value, boolean visible, Rectangle rect, Color bc, Color fg, JFrame window, boolean focusable, boolean extrab, Font f) {
 		 bar = new JProgressBar();
@@ -104,51 +69,40 @@ public class StartupScreen {
 	}
 	public static void setMode(String mode, String runtimeType) {
 		if(runtimeType != null) {
-			if(mode.equals("Light") && runtimeType.equals("User Runtime")) {
-				setRuntimeState("Light", "User Runtime");
-			}else if(mode.equals("Dark") && runtimeType.equals("User Runtime")) {
-				setRuntimeState("Dark", "User Runtime");
-			}else if(mode.equals("Light") && runtimeType.equals("Developer Runtime")) {
-				setRuntimeState("Light", "Developer Runtime");
-			}else if(mode.equals("Dark") && runtimeType.equals("Developer Runtime")) {
-				setRuntimeState("Dark", "Developer Runtime");
+			if(mode.equals("Light") || mode.equals("Light".toLowerCase())) {
+				if(runtimeType.equals("User Runtime")) {
+					setRuntimeState("Light", "User Runtime");
+				}else if(runtimeType.equals("Developer Runtime")) {
+					setRuntimeState("Light", "Developer Runtime");
+				}
+			}else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase())) {
+				if(runtimeType.equals("User Runtime")) {
+					setRuntimeState("Dark", "User Runtime");
+				}else if(runtimeType.equals("Developer Runtime")) {
+					setRuntimeState("Dark", "Developer Runtime");
+				}
 			}
 		}
 	}
 	private static void setRuntimeState(String mode, String runtimeType) {
-		  if(mode.equals("Light") || mode.equals("Light".toLowerCase()) && runtimeType.equals("User Runtime")) {
-				FlatLightLaf.setup();
-				new startup.StartupScreen().timer.start();
-		  }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase()) && runtimeType.equals("User Runtime")) {
-			    FlatDarkLaf.setup();
-				new startup.StartupScreen().timer.start();
-		  }else if(mode.equals("Light") || mode.equals("Light".toLowerCase()) && runtimeType.equals("Developer Runtime")) {
-			    FlatLightLaf.setup();				
-				new App();
-		  }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase()) && runtimeType.equals("Developer Runtime")) {
-			    FlatDarkLaf.setup();
-		        new App();
+		  if(runtimeType.equals("User Runtime")) {
+			    if(mode.equals("Light") || mode.equals("Light".toLowerCase())) {
+			    	  FlatLightLaf.setup();
+			    	  new startup.StartupScreen().timer.start();
+			    }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase())) {
+			    	  FlatDarkLaf.setup();
+			    	  new startup.StartupScreen().timer.start();
+			    }
+		  }else if(runtimeType.equals("Developer Runtime")) {
+			 if(mode.equals("Light") || mode.equals("Light".toLowerCase())) {
+			    	  FlatLightLaf.setup();
+			    	  new App();
+			    	  Screen.window.setVisible(true);   
+			 }else if(mode.equals("Dark") || mode.equals("Dark".toLowerCase())) {
+			    	  FlatDarkLaf.setup();
+			          new App();
+			          Screen.window.setVisible(true);   
+			    }
 		  }
-	 }
-	 private static String read() {
-		 try {
-			content = Files.readString(Path.of("src/output/payment.txt"));
-			if(content.contains("English")) {
-			    currentLanguage = "English";
-			}else if(content.contains("Armenian")) {
-			    currentLanguage = "Armenian";
-		   }
-		 }catch(IOException e) {
-			 System.out.println("Entire reading logic failed: " + e.getMessage());
-		 }
-		 return currentLanguage;
-	 }
-	 public static String getLanguage() {
-	 	   if(new File("src/output/payment.txt").exists()) {
-			   currentLanguage = read();
-		   }else {
-			   currentLanguage = "English";
-		 }
-	 	 return currentLanguage;
 	 }
 }
