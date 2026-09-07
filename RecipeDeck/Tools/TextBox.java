@@ -3,27 +3,27 @@ package Tools;
 import javax.swing.*;
 import java.awt.*;
 import java.time.*;
-import startup.StartupScreen;
+import java.time.temporal.ChronoUnit;
+
 import main.App;
 
 public class TextBox {
 	private JTextPane textPane;
-    private int lastDate;
-    private int latestDate;
-    private int lastMonth;
-    private int latestMonth;
-    private int daysPerMonth;
-    private String daysAgo, monthsAgo;
+    private int lastDate, latestDate, lastMonth, latestMonth, lastYear, latestYear;
+    private LocalDate lastDay, currentDay;
     private LocalDate date;
     
     public TextBox() {
-		this.date = LocalDate.now();
-	    this.lastDate = 22;
-	    this.lastMonth = 8;
+    	this.date = LocalDate.now();
+	    this.lastDate = 7;
+	    this.lastMonth = 9;
+	    this.lastYear = 2026;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
-	    this.daysPerMonth = 31;
-	}
+	    this.latestYear = 2026;
+	    this.lastDay = LocalDate.of(lastYear, lastMonth, lastDate);
+	    this.currentDay = LocalDate.of(latestYear, latestMonth, latestDate);
+    }
 	public void validate() {
 		textPane = new JTextPane();
 		textPane.setBounds(0, 0, 338, 123);
@@ -37,48 +37,16 @@ public class TextBox {
 			textPane.setForeground(Color.black);
 		}
 		App.panelList.get(4).add(textPane);
-		if(StartupScreen.tracker_permission) {
-			textPane.setContentType("text/html");	
-			textPane.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-			setTracker(lastDate, lastMonth, latestDate, latestMonth, "Feature was disabled by Developer since April of 2026, Functionality can be limited.");
-		}else {
-			textPane.setContentType("text/html");	
-			if(Language.currentLanguage.equals("Armenian")) {
-				setInformation("<html><pre style='font-Inter; font-size:12px;'>"
-						 + "                 Ինչ է նորը (English): " + "<br>"
-						 + "                   - Recipe Management Added<br>"
-						 + "                   - Fixed Size of Images      <br>"
-						 + "  Թողարկված է: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Հետևորդը անջատված է)</font>"
-						 + "</pre></html>");
-						
-			}else {
-				setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
-						+ "                        What's New: " + "<br>"
-						+ "                   - Recipe Management Added<br>"
-						+ "                   - Fixed Size of Images         <br>"
-						+ "  Released: " + lastDate + "/" + lastMonth + "/" + "2026 " + "<font color='red'>(Tracker Disabled)</font>"
-						+ "</pre></html>");
-			}
-		}
+		textPane.setContentType("text/html");	
+	
+	    setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
+				+ "                        What's New: " + "<br>"
+				+ "                   - Recipe Management Added<br>"
+				+ "                   - Fixed Size of Images         <br>"
+				+ "  Released: " + lastDate + "/" + lastMonth + "/" + lastYear + " (" + String.valueOf(ChronoUnit.DAYS.between(lastDay, currentDay) + "d ago)")
+				+ "</pre></html>");
 	}
 	private void setInformation(final String info) {
 		textPane.setText(info);
-	}
-	private void setTracker(int lastDate, int lastMonth, int latestDate, int latestMonth, final String warningTip) {
-		 textPane.setToolTipText(warningTip);
-		 if(latestMonth > lastMonth && latestDate == lastDate) {
-			 daysAgo = " (" + String.valueOf(latestMonth - lastMonth) + "mo)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 27.07.2026" + daysAgo);
-		 }else if(latestDate < lastDate) {
-			 monthsAgo = " (" + (daysPerMonth - (lastDate -= latestDate)) + "d)";
-			 setInformation("                        What's New: " + "\n                          - Background Bug Fixes \n                          \n   Released: 27.07.2026" + monthsAgo);
-		 }else if(lastDate == latestDate && lastMonth == latestMonth) {
-			 daysAgo = "(<font color='green'><b>Today</b></font>)";
-			 setInformation("<html><pre style='font-family:sans-serif; font-size:11px;'>" + "                        What's New: <br>"  + "                          - Background Bug Fixes <br>"  + "                          <br>" + "   Released: 27.07.2026 " + daysAgo + "</pre></html>" + daysAgo);
-		 }else if(lastDate == 0 && lastMonth == 0) {
-			 textPane.setContentType("text/plain");
-			 textPane.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 15));
-			 setInformation("\n   Tracker failed to load the last Update date. 🌧️");
-		 }
-	 }  
+	}  
 }
