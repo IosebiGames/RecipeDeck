@@ -28,8 +28,7 @@ public class RecipeHandler {
                 
                 for(int i = 4; i <= 8; i++) App.labelList.get(i).setText("");
                 
-                App.labelList.get(9).setText("Allergens:");
-                App.labelList.get(10).setText("0");
+                App.labelList.get(9).setText("Allergens: " + allergenAmount);
 
                 for(int i = 0; i <= 4; i++) App.buttonList.get(i).setEnabled(true);
                 for(int i = 0; i <= 5; i++) App.buttonList.get(i).setEnabled(true);
