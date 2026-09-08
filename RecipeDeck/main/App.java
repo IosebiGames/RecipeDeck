@@ -38,8 +38,8 @@ public class App {
 		   panelList.add(new JPanel());
 	    }
     	screen.createWindow();
-        
-		for(int i = 0; i < panelList.size(); i++) {
+    	
+        for(int i = 0; i < panelList.size(); i++) {
 	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
 		if(mode.equals("Dark")) {
@@ -94,9 +94,9 @@ public class App {
 		}
 		dec.decorate();
 	    rh.startRecipeSystem();
-	    tb.validate(); 	    
+	    tb.load(); 	   
     }
-	public static void main(String[] args) {
+   public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
 	        StartupScreen.setMode(mode, "User Runtime");
 		});
