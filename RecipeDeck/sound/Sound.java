@@ -6,8 +6,8 @@ public class Sound {
 	private static kuusisto.tinysound.Sound clickSound;
 	
 	public Sound(String path) {
-		clickSound = TinySound.loadSound(getClass().getResource(path));
 		TinySound.init();		
+		clickSound = TinySound.loadSound(getClass().getResource(path));
 	}
 	public static void playSound() {
 		clickSound.play();
