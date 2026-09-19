@@ -8,10 +8,8 @@ public class Screen {
 	public static JFrame window;
 	private static JFrame anotherWindow;
 	
-	public Screen() {
+	public static void createWindow() {
 		window = new JFrame("RecipeDeck");
-	}
-	public void createWindow() {
 		window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setPreferredSize(new Dimension(804, 484));
