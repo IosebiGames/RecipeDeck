@@ -9,14 +9,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import main.App;
+import sound.Sound;
 
 public class RecipeHandler {
     private int counter = 0, allergenAmount = 0;
     public static Timer timer;
     private String recipe;
+    private Sound s;
+    private MoreTab mt;
     
     public RecipeHandler() {
-        timer = new Timer(1000, _ -> {
+    	this.s = new Sound("/sound/click_sound.wav");
+        this.mt = new MoreTab();
+    	timer = new Timer(1000, _ -> {
             counter++;
             if (counter == 10) {
                 timer.stop();
@@ -58,7 +63,8 @@ public class RecipeHandler {
     	
     	App.buttonList.get(6).addActionListener(_ -> {
             timer.stop();
-            App.mt.openMoreTab();
+            mt.openMoreTab();
+            s.playSound();
             App.buttonList.get(6).setVisible(false);
             for (JButton b : App.buttonList) b.setEnabled(false);
             App.buttonList.get(5).setEnabled(true);
@@ -68,35 +74,39 @@ public class RecipeHandler {
                 timer.start();
             }
             App.labelList.get(4).setText("beef patty, bun, lettuce, tomato");
-           
             allergenAmount += 1;
             App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(0).setEnabled(false);
             App.buttonList.get(6).setVisible(true);
+            s.playSound();
         });
         App.buttonList.get(1).addActionListener(_ -> {
             App.labelList.get(5).setText("beef, salt, pepper, garlic");
             allergenAmount += 1;
             App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(1).setEnabled(false);
+            s.playSound();
         });
         App.buttonList.get(2).addActionListener(_ -> {
             App.labelList.get(6).setText("milk, cream, sugar, egg yolks");
             allergenAmount += 1;
             App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(2).setEnabled(false);
+            s.playSound();
         });
         App.buttonList.get(3).addActionListener(_ -> {
             App.labelList.get(7).setText("mayonnaise, celery, lettuce");
             allergenAmount += 1;
             App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(3).setEnabled(false);
+            s.playSound();
         });
         App.buttonList.get(4).addActionListener(_ -> {
             App.labelList.get(8).setText("tomato, olive oil, salt, vinegar");
             allergenAmount += 1;
             App.labelList.get(9).setText("Allergens: " + allergenAmount);
             App.buttonList.get(4).setEnabled(false);
+            s.playSound();
         });
         if(System.console() != null) {
         	if(new File("src/output/UserRecipe.txt").exists()) {
@@ -114,6 +124,7 @@ public class RecipeHandler {
         	App.buttonList.get(10).setEnabled(false);
         }
         App.buttonList.get(7).addActionListener(_ -> {
+             s.playSound();
              recipe = JOptionPane.showInputDialog(null, "Please enter Recipe that you wish to save.", "RecipeDeck", JOptionPane.QUESTION_MESSAGE);
              if(recipe == null) {
                 recipe = "";
@@ -133,6 +144,7 @@ public class RecipeHandler {
              }
         });
         App.buttonList.get(8).addActionListener(_ -> {
+            s.playSound();
         	if(new File("src/output/UserRecipe.txt").exists()) {
         		try (BufferedReader br = new BufferedReader(new FileReader("src/output/UserRecipe.txt"))) {
         			JOptionPane.showMessageDialog(null, br.readLine(), "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
@@ -145,6 +157,7 @@ public class RecipeHandler {
         	}
         });
         App.buttonList.get(9).addActionListener(_ -> {
+            s.playSound();
         	recipe = JOptionPane.showInputDialog(null, "Enter new Recipes:", "RecipeDeck", JOptionPane.PLAIN_MESSAGE);
             if(recipe == null) {
                 recipe = "";
@@ -160,7 +173,8 @@ public class RecipeHandler {
              }
         });
         App.buttonList.get(10).addActionListener(_ -> {
-             if(Files.exists(Path.of("src/output/UserRecipe.txt"))) {
+            s.playSound();
+        	if(Files.exists(Path.of("src/output/UserRecipe.txt"))) {
             	 App.buttonList.get(7).setEnabled(true);
             	 App.buttonList.get(9).setEnabled(false);
             	 App.buttonList.get(10).setEnabled(false);
