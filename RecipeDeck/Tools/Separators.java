@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Separators {
-	public void createSeparator(JLabel Seperatorlabel, Rectangle rect, boolean opaqueStatus) {
+	public static void createSeparator(JLabel Seperatorlabel, Rectangle rect, boolean opaqueStatus) {
 		Seperatorlabel.setBounds(rect.getBounds());
-		Seperatorlabel.setIcon(new ImageIcon(getClass().getResource("/images/seperator_dark_icon.png")));
+		Seperatorlabel.setIcon(new ImageIcon(Separators.class.getResource("/images/seperator_dark_icon.png")));
 		Seperatorlabel.setOpaque(opaqueStatus);
 		Screen.window.add(Seperatorlabel);
 	}
