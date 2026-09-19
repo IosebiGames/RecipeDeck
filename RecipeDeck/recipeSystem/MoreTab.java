@@ -7,16 +7,15 @@ import java.io.File;
 import java.util.ArrayList;
 import main.App;
 import Tools.*;
-import Tools.Panel;
 import sound.Sound;
 import startup.StartupScreen;
 import static Tools.Button.createButton;
 import static Tools.Labels.createLabel;
+import static Tools.Panel.createPanel;
 
 public class MoreTab {
 	private JFrame window;
-    private Panel p;
-   private Timer resetTimer;
+    private Timer resetTimer;
     private int counter = 0;
     private String[] text, labelTexts;
     public ArrayList<JLabel> labelList = new ArrayList<>();
@@ -27,7 +26,6 @@ public class MoreTab {
     private Sound s;
     
     public MoreTab() {
-		this.p = new Panel();
 		this.s = new Sound("/sound/click_sound.wav");
     }
 	public void openMoreTab() {
@@ -64,7 +62,7 @@ public class MoreTab {
 			     return;
 			}
 		});
-		p.createPanel(PanelList.get(0), new Bounds(29, 92, 239, 311).getBounds(), false);
+		createPanel(PanelList.get(0), new Bounds(29, 92, 239, 311).getBounds(), false);
 		createButton(buttonList.get(0), new Bounds(10, 216, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
 		createButton(buttonList.get(1), new Bounds(10, 260, 170, 41).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
 		createButton(buttonList.get(2), new Bounds(16, 31, 60, 40).getBounds(), false, PanelList.get(0), true, Color.white, Color.black);
@@ -113,8 +111,8 @@ public class MoreTab {
 		});
 		buttonList.get(1).addActionListener(_ -> {
 			    displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
-			    Sound.playSound();
-		    	for(JButton b : App.buttonList) {
+			    s.playSound();
+   			 	for(JButton b : App.buttonList) {
 		    		b.setEnabled(false);
 		    		App.buttonList.get(5).setEnabled(true);
 		    		buttonList.get(1).setEnabled(true);
@@ -197,19 +195,19 @@ public class MoreTab {
 	private void setSelection() {
 		switch(productBox.getSelectedIndex()) {
 			case 0: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
-			  Sound.playSound();
+			  s.playSound();
 			  break;
 			case 1: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
-			  Sound.playSound();
+			  s.playSound();
 			  break; 
 			case 2: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
-			  Sound.playSound();
+			  s.playSound();
 			  break;
 			case 3: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
-			  Sound.playSound();
+			  s.playSound();
 			  break;
 			case 4: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
-			  Sound.playSound();
+			  s.playSound();
 			  break;
 		}
 	}
