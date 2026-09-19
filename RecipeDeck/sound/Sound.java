@@ -9,7 +9,7 @@ public class Sound {
 		TinySound.init();		
 		clickSound = TinySound.loadSound(getClass().getResource(path));
 	}
-	public static void playSound() {
-		clickSound.play();
+	public void playSound() {
+	    clickSound.play();
 	}
 }
