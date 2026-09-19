@@ -6,6 +6,7 @@ this Application By itself is Demonstrational, It isn't used for real-world Inte
                   <b>Go to Releases -> Choose RecipeDeck v1.5 -> Download jar</b><br/>
                   <b><br/>
                   <b>**Kudos to Heghine for Armenian translation**: https://github.com/ZeroaNinea</b>
+                  <b>**Armenian translation is unavailable due to maintenance but can be fixed anytime.</br>
 </p>
 
 <img width="804" height="494" alt="image" src="https://github.com/IosebiGames/RecipeDeck/blob/main/RecipeDeck/images/app_dark.png?raw=true" />
