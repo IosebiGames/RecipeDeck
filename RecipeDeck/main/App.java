@@ -10,15 +10,14 @@ import recipeSystem.*;
 import startup.StartupScreen;
 import static Tools.Button.createButton;
 import static Tools.Labels.createLabel;
+import static Tools.Panel.createPanel;
+import static Tools.Separators.createSeparator;
+import static Tools.Screen.createWindow;
 
 public class App {
-	public Screen screen = new Screen();
-	public Separators sp = new Separators();
 	public TextBox tb = new TextBox(); 
     public Bounds b = new Bounds();
-    private Panel panel = new Panel();
     private RecipeHandler rh = new RecipeHandler(); 
-    public static MoreTab mt = new MoreTab();
     private Decorator dec = new Decorator();
     public static List<JLabel> labelList = new ArrayList<>();
     public static List<JButton> buttonList = new ArrayList<>();
@@ -37,10 +36,10 @@ public class App {
     	for(int i = 0; i <= 4; i++) {
 		   panelList.add(new JPanel());
 	    }
-    	screen.createWindow();
+    	createWindow();
     	
         for(int i = 0; i < panelList.size(); i++) {
-	        panel.createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
+	        createPanel(panelList.get(i), new Bounds(Bounds.panelXPostions[i], Bounds.panelYPostions[i], 338, Bounds.panelHeightPostions[i]).getBounds(), false);
 		}
 		if(mode.equals("Dark")) {
 		    createLabel(labelList.get(0), new Font("Inter", Font.BOLD, 29), new Color(225, 178, 89), new Bounds(48, 4, 260, 54).getBounds(), false, panelList.get(0));
@@ -90,12 +89,12 @@ public class App {
 		createButton(buttonList.get(10), new Bounds(341, 340, 106, 40).getBounds(), false, null, true, Color.white, Color.black);
 
 		for(int i = 0; i < Bounds.yPostions.length; i++) {
-			sp.createSeparator(labelList.get(13+i), new Bounds(336, Bounds.yPostions[i], 115, 42).getBounds(), true);
+			createSeparator(labelList.get(13+i), new Bounds(336, Bounds.yPostions[i], 115, 42).getBounds(), true);
 		}
 		dec.decorate();
 	    rh.startRecipeSystem();
 	    tb.load(); 	   
-    }
+   }
    public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
 	        StartupScreen.setMode(mode, "User Runtime");
