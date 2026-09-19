@@ -31,7 +31,8 @@ public class MoreTab {
 	public void openMoreTab() {
 		this.products = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
 		this.productBox = new JComboBox<>(products);
-		this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: " + "0g", "Vitamins: " + "None", "Fats: " + "0g", "Sodium: " + "0g", "Protein: " + "0g", "Water: " + "0g", "Allergens: " + "None", "See Nutritional details below:"};
+		this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: 0g", "Vitamins: None", "Water: 0g", "Sodium: 0g", "Protein: 0g", "Fat: 0g", "Allergens: None", "See Nutritional details below:"};
+		
 		for(int i = 0; i <= 8; i++) {
 			labelList.add(new JLabel(labelTexts[i]));	
 		}
@@ -110,7 +111,7 @@ public class MoreTab {
             }
 		});
 		buttonList.get(1).addActionListener(_ -> {
-			    displayInfo("Calories: 0g", "Vitamins: None", "Protein: 0g", "Sodium: 0g", "Water: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected");
+			    displayInfo("Calories: 0g", "Vitamins: None", "Water: 0g", "Sodium: 0g", "Protein: 0g", "Fat: 0g", "Allergens: None", "Product: " + "Unselected"); 
 			    s.playSound();
    			 	for(JButton b : App.buttonList) {
 		    		b.setEnabled(false);
@@ -177,8 +178,8 @@ public class MoreTab {
 	private Font createFont(String fontName, int type, int size) {
 		return new Font(fontName, type, size);
 	}
-	private void displayInfo(String caloriesInf, String vitaminInf, String proteinInf, String sodiumInf, String waterInf, String fatInf, String allergenInf, String productInf) {
-       text = new String[] {productInf, caloriesInf, vitaminInf, proteinInf, sodiumInf, fatInf, waterInf, allergenInf};
+	private void displayInfo(String caloriesInf, String vitaminInf, String waterInf, String sodiumInf, String proteinInf, String fatInf, String allergenInf, String productInf) {
+       text = new String[] {productInf, caloriesInf, vitaminInf, waterInf, sodiumInf, proteinInf, fatInf, allergenInf};
        for(int i = 0; i < text.length; i++) { 
             labelList.get(i).setText(text[i]);
        }
@@ -194,19 +195,19 @@ public class MoreTab {
 	}
 	private void setSelection() {
 		switch(productBox.getSelectedIndex()) {
-			case 0: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Protein: 26g", "Water: 60mg", "Sodium: 50g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
+			case 0: displayInfo("Calories: 332g", "Vitamins: B12, B6, Iron", "Water: 60mg", "Sodium: 50g", "Protein: 26g", "Fat: 17g (Satured 7g)", "Allergens: 1", "Product: " + "Meat"); 
 			  s.playSound();
 			  break;
-			case 1: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Protein: 3g", "Sodium: 1.5g", "Water: 150g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad"); 
-			  s.playSound();
-			  break; 
-			case 2: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Protein: 30mg", "Sodium: 350mg", "Water: 160g", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad"); 
+			case 1: displayInfo("Calories: 120g", "Vitamins: A, C, K, Folate", "Water: 150g", "Sodium: 1.5g", "Protein: 3g", "Fat: 4g", "Allergens: 1", "Product: " + "Tomato Salad");
 			  s.playSound();
 			  break;
-			case 3: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Protein: 6g", "Sodium: 350mg", "Water: 0.7g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream"); 
-			  s.playSound();
-			  break;
-			case 4: displayInfo("Calories: 500g", "Vitamins: C, K", "Protein: 15g", "Sodium: 400mg", "Water: 90g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger"); 
+		    case 2: displayInfo("Calories: 300g", "Vitamins: C, A, K, Folate", "Water: 160g", "Sodium: 350mg", "Protein: 30mg", "Fat: 4g", "Allergens: 1", "Product: " + "Chicken Salad");
+		      s.playSound();
+		      break;
+		      case 3: displayInfo("Calories: 250g", "Vitamins: A, Calcium", "Water: 0.7g", "Sodium: 350mg", "Protein: 6g", "Fat: 14g", "Allergens: 1", "Product: " + "Ice-Cream");
+		      s.playSound();
+		      break;
+		      case 4: displayInfo("Calories: 500g", "Vitamins: C, K", "Water: 90g", "Sodium: 400mg", "Protein: 15g", "Fat: 25g", "Allergens: 2", "Product: " + "Burger");
 			  s.playSound();
 			  break;
 		}
