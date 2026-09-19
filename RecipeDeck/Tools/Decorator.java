@@ -25,14 +25,14 @@ public class Decorator implements java.awt.event.ActionListener {
         this.Drinkpick = new JMenuItem("Select (90$)");
         this.popup1 = new JPopupMenu();
     	this.popup2 = new JPopupMenu();
-        this.s = new Sound("/sound/click_sound.wav");
-    }
+    	this.s = new Sound("/sound/click_sound.wav");
+   	}
     public void decorate() {
     	    this.burgerAL = e -> {
     	    		 if(e.getSource()==Burgerpick) {
+    	    			 s.playSound();
     	    			 addings += 60;
     	    			 App.labelList.get(11).setText("Total Cost: " + addings + "$");
-    	    			 Sound.playSound();
     	    			 Burgerpick.setText("Can't Select twice or more, product is too expensive.");
     	    			 Burgerpick.setEnabled(false);
     	    			 App.buttonList.get(5).setEnabled(true);
@@ -46,7 +46,7 @@ public class Decorator implements java.awt.event.ActionListener {
     	    		 if(e.getSource()==Burgerpick) {
     	    			 addings += 60;
     	    			 App.labelList.get(11).setText("Total Cost: " + addings + "$");
-    	    			 Sound.playSound();
+    	    			 s.playSound();
     	    			 App.labelList.get(19).setVisible(false);
     	    			 App.buttonList.get(5).setVisible(true);
     	    		 }
@@ -73,8 +73,8 @@ public class Decorator implements java.awt.event.ActionListener {
     	    			 if(e.getSource()==Drinkpick) {
     	    				 addings += 90;
     	    				 App.labelList.get(11).setText("Total Cost: " + addings + "$");
-    	    				 Sound.playSound();
-    	     	    		 OutputManager.write("src/output/payment.txt", String.valueOf(addings));
+    	    				 s.playSound();
+        	    			 OutputManager.write("src/output/payment.txt", String.valueOf(addings));
     	    			 }
     	    		 }        	
     	    	 });
@@ -94,15 +94,9 @@ public class Decorator implements java.awt.event.ActionListener {
     	    	 App.labelList.get(1).setBorder(BorderFactory.createLineBorder(Color.black));
     	    	 App.labelList.get(1).setComponentPopupMenu(popup2);
     	    	 App.labelList.get(10).setFont(new Font("Inter", Font.BOLD, 15));
-    	    	 for(JButton b : App.buttonList) {
-    	              b.addActionListener(e -> {
-    	            	if(e.getSource() == b) {
-    	            	   Sound.playSound();	
-    	             }
-    	         });
-    	  }
     }
     public void actionPerformed(ActionEvent e) {
+    	    s.playSound();
     	    Burgerpick.setText("Pick (60$)");
             Burgerpick.setEnabled(true);
     		Burgerpick.removeActionListener(burgerAL);
