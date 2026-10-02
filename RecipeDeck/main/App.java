@@ -3,6 +3,8 @@ package main;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import Tools.*;
@@ -22,11 +24,11 @@ public class App {
     public static List<JLabel> labelList = new ArrayList<>();
     public static List<JButton> buttonList = new ArrayList<>();
     public static List<JPanel> panelList = new ArrayList<>();
-    public static String mode = "Light";
-	private static String[] LabelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens: 0", "", "Total Cost: 0$", "" + "", "", "", "", "", "", "", "Please Select Any Product."};
+    public static String mode;
+    private static String[] LabelTexts = {"Foods & Drinks", "", "", "Recipes", "", "", "", "", "", "Allergens: 0", "", "Total Cost: 0$", "" + "", "", "", "", "", "", "", "Please Select Any Product."};
 	private static String[] ButtonTexts = {"Burger", "Steak", "Ice-Cream", "Chicken Salad", "Tomato Salad", "Next", "More", "Save Recipe", "See Recipe", "Edit Recipe", "Erase Recipe"};
 
-    public App() { 
+    public App() {
     	for(String labelText : LabelTexts) {
 			App.labelList.add(new JLabel(labelText));
 		}
@@ -88,16 +90,24 @@ public class App {
 		createButton(buttonList.get(9), new Bounds(342, 260, 103, 40).getBounds(), false, null, true, Color.white, Color.black);
 		createButton(buttonList.get(10), new Bounds(341, 340, 106, 40).getBounds(), false, null, true, Color.white, Color.black);
 
-		for(int i = 0; i < Bounds.yPostions.length; i++) {
-			createSeparator(labelList.get(13+i), new Bounds(336, Bounds.yPostions[i], 115, 42).getBounds(), true);
-		}
+		createSeparator(labelList.get(13), new Bounds(336, 26, 115, 42).getBounds(), true);
+		createSeparator(labelList.get(14), new Bounds(336, 116, 115, 42).getBounds(), true);
+		createSeparator(labelList.get(15), new Bounds(336, 214, 115, 42).getBounds(), true);
+		createSeparator(labelList.get(16), new Bounds(336, 296, 115, 42).getBounds(), true);
+		createSeparator(labelList.get(17), new Bounds(336, 378, 115, 42).getBounds(), true);
+	
 		dec.decorate();
 	    rh.startRecipeSystem();
 	    tb.load(); 	   
    }
    public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
-	        StartupScreen.setMode(mode, "User Runtime");
+	    	if(Files.exists(Path.of("src/output/theme.txt"))) {
+	    		 mode = OutputManager.read("src/output/theme.txt");
+	    	}else {
+	    	     mode = "Light";
+	    	}
+	    	StartupScreen.setMode(mode, "User Runtime");
 		});
 	 }
  }
