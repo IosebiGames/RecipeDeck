@@ -15,8 +15,8 @@ import static Tools.Panel.createPanel;
 
 public class MoreTab {
 	private JFrame window;
-    private Timer resetTimer;
-    private int counter = 0;
+    private Timer resetTimer, closingTimer;
+    private int counter = 0, counter2 = 0, seconds = 4;
     private String[] text, labelTexts;
     public ArrayList<JLabel> labelList = new ArrayList<>();
     public ArrayList<JButton> buttonList = new ArrayList<>();
@@ -24,6 +24,7 @@ public class MoreTab {
     public String[] products;
     private JComboBox<?> productBox;
     private Sound s;
+    private ActionListener DarkListener, LightListener;
     
     public MoreTab() {
 		this.s = new Sound("/sound/click_sound.wav");
@@ -31,14 +32,28 @@ public class MoreTab {
 	public void openMoreTab() {
 		this.products = new String[] {"Unselected", "Meat", "Tomato Salad", "Chicken Salad", "Ice-Cream", "Burger"};
 		this.productBox = new JComboBox<>(products);
-		this.labelTexts = new String[] {"Product: " + "Unselected", "Calories: 0g", "Vitamins: None", "Water: 0g", "Sodium: 0g", "Protein: 0g", "Fat: 0g", "Allergens: None", "See Nutritional details below:"};
+		this.labelTexts = new String[] {"Product: " + "Not Selected", "Calories: 0g", "Vitamins: None", "Water: 0g", "Sodium: 0g", "Protein: 0g", "Fat: 0g", "Allergens: None", "See Nutritional details below:"};
 		
 		for(int i = 0; i <= 8; i++) {
 			labelList.add(new JLabel(labelTexts[i]));	
 		}
 		buttonList.add(new JButton("Request all Recipes"));
 		buttonList.add(new JButton("Close"));
-		buttonList.add(new JButton("A"));
+		if(App.mode.equals("Light")) {
+			buttonList.add(new JButton("D"));
+		}else if(App.mode.equals("Dark")) {
+			buttonList.add(new JButton("L"));
+		}
+		if(System.console() != null) {
+			if(App.mode.equals("Dark")) {
+				buttonList.get(2).setToolTipText("Switch to Light Theme.");
+			}else if(App.mode.equals("Light")) {
+				buttonList.get(2).setToolTipText("Switch to Dark Theme.");
+		  }
+		}else {
+	        buttonList.get(2).setToolTipText("Theme switching is only supported for CMD.");
+	    	buttonList.get(2).setEnabled(false);
+	    }
 		PanelList.add(new JPanel());
 	    
 		resetTimer = new Timer(1000, _ -> {
@@ -137,12 +152,40 @@ public class MoreTab {
 		    	 }
 		     }
 		});
-		buttonList.get(2).setEnabled(false);
-		buttonList.get(2).setToolTipText("Language Switching is impaired due to Maintenance.");
-		buttonList.get(2).addActionListener(e -> {
-			 if(e.getSource() == buttonList.get(2)) {
+		closingTimer = new Timer(1000, _ -> {
+				 counter2++;
+				 seconds -= 1;
+				 labelList.get(0).setText("Please reopen the app.  " + seconds);
+				 if(counter2 == 3) {
+					 labelList.get(0).setText("Ready? Closing.");
+					 seconds = 0;
+				 }
+				 if(counter2 == 4) {
+				    counter2 = 0;
+					System.exit(0);
 			 }
 		});
+		LightListener = e -> {
+            if(e.getSource() == buttonList.get(2)) {
+                 OutputManager.write("src/output/theme.txt", "Light");
+                 s.playSound();
+            	 labelList.get(0).setText("Please reopen the app.  " + seconds);
+                 closingTimer.start();
+            }
+		};
+		DarkListener = e -> {
+			 if(e.getSource() == buttonList.get(2)) {
+				 OutputManager.write("src/output/theme.txt", "Dark");
+                 s.playSound();
+            	 labelList.get(0).setText("Please reopen the app.  " + seconds);
+                 closingTimer.start();
+        	 }
+		};
+		if(App.mode.equals("Light")) {
+			buttonList.get(2).addActionListener(DarkListener);
+		}else if(App.mode.equals("Dark")) {
+			buttonList.get(2).addActionListener(LightListener);
+		}
 		for(int labelIndex = 1; labelIndex <= 7; labelIndex++) {
 			PanelList.get(0).add(labelList.get(1));
 		}
