@@ -17,8 +17,8 @@ public class TextBox {
     
     public TextBox() {
     	this.date = LocalDate.now();
-	    this.lastDate = 8;
-	    this.lastMonth = 9;
+	    this.lastDate = 1;
+	    this.lastMonth = 11;
 	    this.lastYear = 2026;
 	    this.latestDate = date.getDayOfMonth();
 	    this.latestMonth = date.getMonthValue();
@@ -42,16 +42,24 @@ public class TextBox {
 		}
 		if(daysBetween < 30) {
 			duration = String.valueOf(daysBetween + "d ago");
+		    setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
+			    	+ "                        What's New: " + "<br>"
+			    	+ "                   - Recipe Management Added<br>"
+			    	+ "                   - Added Theme Switching       <br>"
+			    	+ "  Released: " + lastDate + "/" + lastMonth + "/" + lastYear + " (" + duration + ")"
+			    	+ "</pre></html>");
 		}else if(daysBetween > 30) {
 			duration = String.valueOf("30d+ ago");
 		    textPane.setToolTipText(String.valueOf(daysBetween));
+		    duration = String.valueOf(daysBetween + "d ago");	
+		    setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
+		    		+ "                        What's New: " + "<br>"
+		    		+ "                   - Recipe Management Added<br>"
+		    		+ "                   - Added Theme Switching       <br>"
+		    		+ "  Released: " + lastDate + "/" + lastMonth + "/" + lastYear + " (" + duration + ")"
+		    		+ "</pre></html>");
+		    
 		}
-	    setInformation("<html><pre style='font-family:Inter; font-size:12px;'>"
-				+ "                        What's New: " + "<br>"
-				+ "                   - Recipe Management Added<br>"
-				+ "                   - Fixed Size of Images         <br>"
-				+ "  Released: " + lastDate + "/" + lastMonth + "/" + lastYear + " (" + duration + ")"
-				+ "</pre></html>");
 	    App.panelList.get(4).add(textPane);
 	}
 	private void setInformation(final String info) {
